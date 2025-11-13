@@ -23,7 +23,6 @@
         }
         .hero {
             background-color: #f8f9fa;
-            height: 60vh;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -74,13 +73,13 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="#hero">Hero</a>
+                            <a class="nav-link" href="#what-is">What is FSD?</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#how-help">How can I help?</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#faq">FAQ</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#static">About</a>
                         </li>
                     </ul>
                 </div>
@@ -90,8 +89,6 @@
 
     <section id="hero" class="hero">
         <div class="container">
-            <h1>Welcome to WeNeedFSD.eu</h1>
-            <p>Discover our mission and vision for Full Stack Development.</p>
             <!-- Placeholder for hero image/video -->
             <div style="width: 100%; height: 200px; background-color: #e9ecef; display: flex; align-items: center; justify-content: center; border: 2px dashed var(--primary-blue);">
                 <span>Hero Image/Video Placeholder</span>
@@ -99,9 +96,82 @@
         </div>
     </section>
 
+    <section id="what-is" class="static-section">
+        <div class="container">
+            <h2 class="text-center mb-4">What is Full Self-Driving (Supervised)</h2>
+            <p>
+                <a href="https://www.tesla.com/fsd">Full Self-Driving (Supervised)</a>, also know as FSD, is Tesla’s advanced driver assistance system 
+                that enables vehicles to navigate roads with minimal human input. Using cameras, radar, and AI, it handles lane changes, traffic lights,
+                 stop signs, and complex maneuvers — all under driver supervision. Unlike traditional cruise control, FSD actively drives the car from 
+                 point A to B, adapting in real time to traffic, pedestrians, and road conditions.
+            </p>
+            <p>
+                Proven safer than human drivers — with 85% fewer crashes per <a href="https://www.tesla.com/VehicleSafetyReport">Tesla's latest data</a> — FSD Supervised is ready for supervised use in Europe 
+                under Article 39 exemptions. It's not fully autonomous yet, but it's the closest step to safer, stress-free driving, already trusted by
+                millions of miles on U.S. roads.
+            </p>
+        </div>
+    </section>
+
+    <section id="why-not" class="static-section bg-light">
+        <div class="container">
+            <h2 class="text-center mb-4">Why Is FSD Not Available in Europe?</h2>
+            <p>
+                FSD has been <strong>transforming driving</strong> in the United States <strong>October 2020</strong> — over <strong>five years</strong> of real-world use,
+                 billions of miles driven, and proven safety gains.
+            </p>
+            <p>
+                In Europe, FSD remains <strong>unavailable</strong> despite Tesla's active efforts and data consistently showing it is safe and saving lives. Stricter 
+                regulations continue to delay approval — leaving EU drivers without access to this transformative and life-saving technology.
+            </p>
+        </div>
+    </section>
+
+    <section id="why-matters" class="static-section">
+        <div class="container">
+            <h2 class="text-center mb-4">Why this matters?</h2>
+            <p>
+                Every year, over <strong>20.000 people die</strong> and more than <strong>2 million are injured</strong> on EU roads. FSD Supervised — already proven 4.2x safer than human
+                drivers in the U.S. — could dramatically reduce these numbers by preventing crashes before they happen.
+            </p>
+            <p>
+                Europe is falling behind. While the U.S. has benefited from five years of FSD progress, <strong>overly strict regulations</strong> here slow or block life-saving innovation. 
+                Delaying FSD doesn't just limit convenience — it costs lives, prolongs suffering, and hinders a better quality of life for millions of drivers.
+            </p>
+        </div>
+    </section>
+
+    <section id="how-help" class="static-section bg-light">
+        <div class="container">
+            <h2 class="text-center mb-4">How can I help?</h2>
+                <p>
+                    <strong>You can help bring FSD to Europe — today.</strong> 
+                    Spread the word: tell friends and family about FSD and share this website. Most people don't know this technology exists — or 
+                    how <strong>transformative and life-saving</strong> it truly is.  
+                    <br><br>
+                    Contact these key decision-makers and <strong>demand immediate approval</strong> of FSD Supervised:
+                </p>
+                <ul>
+                    <ul><a href="https://european-union.europa.eu/contact-eu/write-us_en">European Commission</a> - Push for fast-track EU-wide rollout</ul>
+                    <ul><a href="https://www.europarl.europa.eu/meps/en/full-list">Your National MEPs</a> - Urge them to champion safety innovation in Parliament</ul>
+                    <ul>National Ministry of Transport - Demand Article 39 exemptions and testing support</ul>
+                    <ul><a href="https://www.rdw.nl/en/contact/our-contact-options">RDW (Netherlands)</a> - Tesla's EU homologation authority; pressure for swift approval</ul>
+                    <ul><a href="https://unece.org/unece-information-service">UNECE</a> - Advocate for modernized rules that allow proven-safe systems</ul>
+                </ul>
+                <p>
+                    Europe is falling behind. While the U.S. has benefited from five years of FSD progress, <strong>overly strict regulations</strong> here slow or block life-saving innovation. 
+                    Delaying FSD doesn't just limit convenience — it costs lives, prolongs suffering, and hinders a better quality of life for millions of drivers.
+                </p>
+        </div>
+    </section>
+
     <section id="faq" class="faq-section">
         <div class="container">
             <h2 class="text-center mb-4">Frequently Asked Questions</h2>
+            <!--
+                - Where is it available?
+                - Details on regulations (UNECE, Article 39, RDW, ... - See grok's initial text for "Why is it not availabele in Europe")
+            -->
             <div class="accordion" id="faqAccordion">
                 <div class="accordion-item">
                     <h2 class="accordion-header">
@@ -143,17 +213,9 @@
         </div>
     </section>
 
-    <section id="static" class="static-section bg-light">
-        <div class="container">
-            <h2 class="text-center mb-4">About Us</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        </div>
-    </section>
-
     <footer class="footer">
         <div class="container text-center">
-            <p>&copy; 2023 WeNeedFSD.eu. All rights reserved.</p>
+            <p>&copy; 2025 WeNeedFSD.eu. All rights reserved.</p>
             <ul class="list-inline">
                 <li class="list-inline-item">
                     <a href="#">Privacy Policy</a>
