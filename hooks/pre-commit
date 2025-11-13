@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Links this from .git/hooks/pre-commit
+
 # Update the last updated date in index.html
 DATE=$(date '+%d %B %Y')
 sed -i '' -e "s/Last updated: .*/Last updated: $DATE/" index.html
