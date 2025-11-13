@@ -6,6 +6,7 @@
     <title>WeNeedFSD.eu</title>
     <link rel="icon" type="image/png" href="favicon.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
             --primary-blue: #003399ff;
@@ -29,16 +30,43 @@
             font-weight: bold;
         }
         .hero {
-            background-color: #f8f9fa;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: var(--primary-blue);
+            position: relative;
+            width: 100%;
+            overflow: hidden;
         }
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
+        #hero-video {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        .video-source-link {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            color: white;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 8px 12px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        .video-source-link:hover {
+            background: rgba(0, 0, 0, 0.9);
+        }
+        .expand-btn {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .expand-btn:hover {
+            background: rgba(0, 0, 0, 0.9);
         }
         .faq-section, .static-section {
             padding: 4rem 0;
@@ -98,12 +126,12 @@
     </header>
 
     <section id="hero" class="hero">
-        <div class="container">
-            <!-- Placeholder for hero image/video -->
-            <div style="width: 100%; height: 200px; background-color: #e9ecef; display: flex; align-items: center; justify-content: center; border: 2px dashed var(--primary-blue);">
-                <span>Hero Image/Video Placeholder</span>
-            </div>
-        </div>
+        <video id="hero-video" autoplay muted loop playsinline>
+            <source src="https://video.twimg.com/amplify_video/1933077904017035264/vid/avc1/3840x2160/RCz99zPLRw-W9nBR.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <button id="expand-btn" class="expand-btn"><i class="fas fa-expand"></i></button>
+        <a href="https://x.com/teslaeurope/status/1933091243711410387" class="video-source-link" target="_blank">Source: FSD testing in Rome, Italy.</a>
     </section>
 
     <section id="what-is" class="static-section">
@@ -247,5 +275,21 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const expandBtn = document.getElementById('expand-btn');
+        const video = document.getElementById('hero-video');
+        let isExpanded = false;
+
+        expandBtn.addEventListener('click', function() {
+            if (isExpanded) {
+                video.style.height = '250px';
+                expandBtn.innerHTML = '<i class="fas fa-expand"></i>';
+            } else {
+                video.style.height = '100vh';
+                expandBtn.innerHTML = '<i class="fas fa-compress"></i>';
+            }
+            isExpanded = !isExpanded;
+        });
+    </script>
 </body>
 </html>
