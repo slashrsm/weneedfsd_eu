@@ -2,7 +2,7 @@
 
 # Update the last updated date in index.html
 DATE=$(date '+%d %B %Y')
-sed -i "s/Last updated: .*/Last updated: $DATE/" index.html
+sed -i '' -e "s/Last updated: .*/Last updated: $DATE/" index.html
 
 # Stage the updated file
 git add index.html
