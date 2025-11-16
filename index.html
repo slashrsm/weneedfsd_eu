@@ -161,7 +161,7 @@
             Your browser does not support the video tag.
         </video>
         <button id="expand-btn" class="expand-btn"><i class="fas fa-expand"></i></button>
-        <a href="https://x.com/teslaeurope/status/1933091243711410387" class="video-source-link external" target="_blank">Source: FSD testing in Rome, Italy.</a>
+        <a href="https://x.com/teslaeurope/status/1933091243711410387" id="video-source-link" class="video-source-link external" target="_blank">Source: FSD testing in Rome, Italy.</a>
     </section>
 
     <section id="what-is" class="static-section bg-light">
@@ -701,14 +701,21 @@
 
         const expandBtn = document.getElementById('expand-btn');
         const video = document.getElementById('hero-video');
+        const sourceLink = document.getElementById('video-source-link');
         let isExpanded = false;
 
         expandBtn.addEventListener('click', function() {
             if (isExpanded) {
                 video.style.height = '250px';
+                video.removeAttribute('controls');
+                sourceLink.style.bottom = '10px';
+                sourceLink.style.top = 'auto';
                 expandBtn.innerHTML = '<i class="fas fa-expand"></i>';
             } else {
                 video.style.height = '100vh';
+                video.setAttribute('controls', 'controls');
+                sourceLink.style.top = '10px';
+                sourceLink.style.bottom = 'auto';
                 expandBtn.innerHTML = '<i class="fas fa-compress"></i>';
             }
             isExpanded = !isExpanded;
