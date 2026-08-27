@@ -62,6 +62,14 @@
     return pretty || iso;
   }
 
+  function formatAsOfShort(iso) {
+    if (!iso) return "";
+    const [y, m, d] = iso.split("-").map(Number);
+    const short = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    if (!y || !m || !d) return iso;
+    return d + " " + short[m - 1] + " " + y;
+  }
+
   function escapeHtml(s) {
     return String(s)
       .replace(/&/g, "&amp;")
@@ -104,7 +112,9 @@
     $("#counter-share .stat-value").textContent = "~" + share + "%";
     const asOf = formatAsOf(data.asOf);
     const chip = $(".status-chip");
-    if (chip) chip.textContent = approved + " / " + total + " approved";
+    if (chip) {
+      chip.textContent = approved + " / " + total + " approved · as of " + formatAsOfShort(data.asOf);
+    }
     const q = $(".status-qualifier");
     if (q) {
       q.textContent =
@@ -177,10 +187,33 @@
         chips.appendChild(btn);
       });
       details.appendChild(chips);
+      details.addEventListener("toggle", () => {
+        if (window.matchMedia("(min-width: 960px)").matches && !details.open) {
+          details.open = true;
+        }
+      });
       frag.appendChild(details);
     });
 
     host.replaceChildren(frag);
+    syncCountryGroups();
+  }
+
+  function syncCountryGroups() {
+    const wide = window.matchMedia("(min-width: 960px)").matches;
+    const selected = selectedIso ? countryByIso(selectedIso) : null;
+    $$("#country-list .country-group").forEach((d) => {
+      const meta = GROUP_META.find((g) => d.id === "country-group-" + g.id);
+      const sum = d.querySelector("summary");
+      if (wide) {
+        d.open = true;
+        if (sum) sum.tabIndex = -1;
+        return;
+      }
+      if (sum) sum.removeAttribute("tabindex");
+      if (selected && meta && selected.status === meta.status) d.open = true;
+      else if (meta) d.open = meta.openOnSmall;
+    });
   }
 
   function openGroupForStatus(status) {
@@ -232,7 +265,6 @@
         return;
       }
       if (box.width >= 24 && box.height >= 24) return;
-      // MT, LU, CY and other small paints: add an unnamed hit circle
       let cx;
       let cy;
       try {
@@ -451,7 +483,7 @@
             " cannot use Article 39. See <a class=\"text-link\" href=\"#faq-noneu\">United Kingdom, Switzerland and Norway</a>.</p>"
           : "";
       root.innerHTML =
-        "<header><p class=\"overline\">Letter</p><h3>Choose a country first</h3></header>" +
+        "<header><p class=\"overline\">Letter</p><h3 id=\"letter-heading\">Choose a country first</h3></header>" +
         noneNote +
         '<p><button type="button" class="btn btn-secondary" id="letter-choose">Choose a country</button></p>';
       const choose = document.getElementById("letter-choose");
@@ -461,7 +493,7 @@
 
     root.innerHTML =
       "<header class=\"letter-header\">" +
-      "<div><p class=\"overline\">Letter template</p><h3>Send this to " +
+      "<div><p class=\"overline\">Letter template</p><h3 id=\"letter-heading\">Send this to " +
       escapeHtml(c.authority) +
       "</h3></div>" +
       '<div class="letter-actions">' +
@@ -600,6 +632,7 @@
   }
 
   function onWriteActivate(e) {
+    if (navOpen) setNav(false);
     if (selectedIso) {
       const c = countryByIso(selectedIso);
       if (c && letterMode(c.status) !== "none") return;
@@ -805,17 +838,18 @@
       if (pause) pause.hidden = paused;
     }
 
+    const hero = document.getElementById("hero");
+
     function applyReduced(reduce) {
+      document.documentElement.classList.toggle("reduce-motion", reduce);
       if (reduce) {
         video.pause();
         video.removeAttribute("autoplay");
         video.preload = "none";
-        video.setAttribute("hidden", "");
-        if (poster) poster.removeAttribute("hidden");
+        if (hero) hero.classList.remove("is-playing-film");
         setPausedUI(true);
       } else {
-        video.removeAttribute("hidden");
-        if (poster) poster.setAttribute("hidden", "");
+        if (hero) hero.classList.add("is-playing-film");
         const p = video.play();
         if (p && p.catch) p.catch(function () { setPausedUI(true); });
         setPausedUI(false);
@@ -829,13 +863,13 @@
 
     btn.addEventListener("click", () => {
       if (video.paused) {
-        video.removeAttribute("hidden");
-        if (poster) poster.setAttribute("hidden", "");
+        if (hero) hero.classList.add("is-playing-film");
         const p = video.play();
         if (p && p.catch) p.catch(function () {});
         setPausedUI(false);
       } else {
         video.pause();
+        if (mq.matches && hero) hero.classList.remove("is-playing-film");
         setPausedUI(true);
       }
     });
@@ -906,12 +940,7 @@
       honourHash();
     });
     window.addEventListener("resize", () => {
-      const wide = window.matchMedia("(min-width: 960px)").matches;
-      if (wide) {
-        $$("#country-list details.country-group").forEach((d) => {
-          d.open = true;
-        });
-      }
+      syncCountryGroups();
       enhanceMapHits();
     });
   }

@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="logo32-title">
   <title id="logo32-title">WeNeedFSD.eu</title>
-  <!-- Small master for 32–63px. Stars are a ring of dots; 5-point stars die at this size. -->
+  <!-- Small master 32–63px. Dots, not stars. -->
   <circle cx="64" cy="64" r="64" fill="#003399"/>
   <g id="logo32-dots" fill="#FFCC00">
     <circle cx="64" cy="22" r="6.2"/>
