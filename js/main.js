@@ -113,7 +113,7 @@
     const asOf = formatAsOf(data.asOf);
     const chip = $(".status-chip");
     if (chip) {
-      chip.textContent = approved + " / " + total + " approved · as of " + formatAsOfShort(data.asOf);
+      chip.textContent = approved + " / " + total + " approved · as\u00a0of " + formatAsOfShort(data.asOf);
     }
     const q = $(".status-qualifier");
     if (q) {

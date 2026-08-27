@@ -355,9 +355,9 @@ h3 {
   .status-chip {
     display: inline-flex;
     align-items: center;
-    min-width: 0;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    min-width: max-content;
+    max-width: none;
+    overflow: visible;
   }
 }
 
@@ -968,16 +968,14 @@ html.nav-open { overflow: hidden; }
   .status-layout {
     grid-template-columns: minmax(0, 7fr) minmax(20rem, 5fr);
     grid-template-areas:
-      "map panel"
-      "map skip"
+      "panel panel"
+      "skip skip"
       "map list";
     gap: 24px 40px;
     align-items: start;
   }
 
   #status-panel {
-    position: sticky;
-    top: calc(var(--header-h) + 16px);
     margin-bottom: 0;
   }
 
@@ -1273,6 +1271,7 @@ html.nav-open { overflow: hidden; }
 .stat-grid {
   display: grid;
   gap: 16px;
+  margin-top: 2rem;
   margin-bottom: 32px;
 }
 
@@ -1284,7 +1283,10 @@ html.nav-open { overflow: hidden; }
   .stat-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 
-.honest { max-width: var(--measure); }
+#why .prose,
+#why .honest {
+  max-width: none;
+}
 
 /* ----- help ----- */
 
