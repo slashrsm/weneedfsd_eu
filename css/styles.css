@@ -306,6 +306,7 @@ h3 {
   width: 32px;
   height: 32px;
   flex-shrink: 0;
+  object-fit: contain;
 }
 
 .brand-word {
@@ -1530,6 +1531,7 @@ blockquote.testimonial p {
 .footer-brand img {
   width: 40px;
   height: 40px;
+  object-fit: contain;
 }
 
 .footer-brand .brand-word { font-size: 20px; }
