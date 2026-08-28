@@ -50,19 +50,19 @@
           <li class="nav-write-mobile"><a href="#status" data-write>Write to your ministry</a></li>
         </ul>
         <nav class="lang-nav lang-nav--drawer" aria-label="Language">
-          <a href="/" hreflang="en" lang="en" data-locale="en" aria-current="page">EN</a>
+          <a href="/" hreflang="en" lang="en" data-locale="en" data-letters="reviewed" aria-current="page">EN</a>
           <span class="lang-sep" aria-hidden="true">·</span>
-          <a href="/sl/" hreflang="sl" lang="sl" data-locale="sl">SL</a>
+          <a href="/sl/" hreflang="sl" lang="sl" data-locale="sl" data-letters="draft">SL</a>
           <span class="lang-sep" aria-hidden="true">·</span>
-          <a href="/it/" hreflang="it" lang="it" data-locale="it">IT</a>
+          <a href="/it/" hreflang="it" lang="it" data-locale="it" data-letters="draft">IT</a>
         </nav>
       </nav>
       <nav class="lang-nav lang-nav--bar" aria-label="Language">
-        <a href="/" hreflang="en" lang="en" data-locale="en" aria-current="page">EN</a>
+        <a href="/" hreflang="en" lang="en" data-locale="en" data-letters="reviewed" aria-current="page">EN</a>
         <span class="lang-sep" aria-hidden="true">·</span>
-        <a href="/sl/" hreflang="sl" lang="sl" data-locale="sl">SL</a>
+        <a href="/sl/" hreflang="sl" lang="sl" data-locale="sl" data-letters="draft">SL</a>
         <span class="lang-sep" aria-hidden="true">·</span>
-        <a href="/it/" hreflang="it" lang="it" data-locale="it">IT</a>
+        <a href="/it/" hreflang="it" lang="it" data-locale="it" data-letters="draft">IT</a>
       </nav>
       <a class="btn btn-primary btn-compact" data-write href="#status">Write</a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Menu">
@@ -950,6 +950,117 @@
       "sourceUrl": "https://www.reuters.com/world/tesla-presented-misleading-full-self-driving-safety-data-european-regulators-2026-06-15/"
     }
   ]
+}
+  </script>
+  <script type="application/json" id="i18n-data">
+{
+  "locale": "en",
+  "letters": "reviewed",
+  "ui": {
+    "navStatus": "Status",
+    "navWhy": "Why it matters",
+    "navHelp": "How to help",
+    "navFaq": "FAQ",
+    "write": "Write",
+    "writeMinistry": "Write to your ministry",
+    "copyLetter": "Copy letter",
+    "copied": "Copied",
+    "copyFailed": "Copy failed. Select the letter and copy it yourself.",
+    "chooseCountry": "Choose a country first",
+    "chooseCountryBtn": "Choose a country",
+    "letterOverline": "Letter template",
+    "letterOverlineEmpty": "Letter",
+    "sendTo": "Send this to {authority}",
+    "writeTo": "Write to {authority}",
+    "openSite": "Open {authority} website",
+    "opensNew": ", opens in a new window",
+    "groupApproved": "Approved",
+    "groupReview": "Under review",
+    "groupOpposed": "Opposed",
+    "groupNone": "No decision",
+    "groupNoneu": "Outside the EU",
+    "statusLabels": {
+      "approved": "Approved",
+      "in_review": "Under review",
+      "opposed": "Opposed",
+      "no_national_approval": "No decision",
+      "non_eu": "Outside the EU"
+    },
+    "panelEmpty": "Choose a country to write to its ministry.",
+    "noHomepage": "No official homepage on file — search for {authority}.",
+    "officialAnnouncement": "Official announcement",
+    "faqNoneu": "Why the United Kingdom, Switzerland and Norway cannot use Article 39",
+    "faqOpposed": "Why France and Sweden said no",
+    "faqLapse": "What happens if the Commission says no",
+    "noneuNote": "{name} cannot use Article 39. See {link}.",
+    "noneuNoteLink": "United Kingdom, Switzerland and Norway",
+    "letterPaste": "Citizens can paste this, fill the brackets, and send it in their own language if they prefer.",
+    "letterSubjectLine": "Subject: {subject}",
+    "writeTheLetter": "Write the letter",
+    "loadError": "Could not load country data. Serve this folder over http to enable the picker.",
+    "chipOpposed": "Opposed",
+    "closeMenu": "Close menu",
+    "menu": "Menu",
+    "playFilm": "Play film",
+    "pauseVideo": "Pause video",
+    "counterNotYet": "{n} not yet",
+    "counterShare": "~{share}%",
+    "statusChip": "{approved} / {total} approved · as\u00a0of {date}",
+    "statusQualifier": "A qualified majority needs {states} states and {pct}% of people · EU vote {label}, not on a published agenda · as\u00a0of {asOf}.",
+    "statusSource": "A live third-party view of the same map is at {link}. We are not scraping that site. Figures are our reading of official notices, dated {asOf}.",
+    "trackerName": "fsd-eu-tracker.de",
+    "helpLettersNote": "Letter templates in this language are not ready yet. Choose a country to find your ministry, then write in your own words.",
+    "months": [
+      "January", "February", "March", "April", "May", "June",
+      "July", "August", "September", "October", "November", "December"
+    ],
+    "monthsShort": [
+      "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+      "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+    ]
+  },
+  "letter": {
+    "subject": "Tesla FSD Supervised — please take a public position on the TCMV vote",
+    "sigName": "[Name]",
+    "sigCity": "[city]",
+    "sigVehicle": "[I own a Hardware 4 Tesla / I own a Hardware 3 Tesla, which I understand is outside the current approval / I do not own a Tesla]",
+    "clauseDE": "Germany has said the KBA is assessing the file",
+    "clauseES": "Spain has said it prefers coordination with the Commission rather than a unilateral copy of the Dutch approval",
+    "clauseFR": "Minister Tabarot declined national recognition of the current product on 22 July 2026.",
+    "clauseSE": "I understand Trafikverket’s April letter recommended a TCMV “no” unless the speed-offset is removed.",
+    "opening": [
+      "<p>Dear Minister / Director,</p>",
+      "<p>I am a resident of {name} writing about Tesla Full Self-Driving (Supervised). It is a SAE Level 2 driver-assistance system. The driver remains legally responsible.</p>",
+      "<p>On 10 April 2026 the Dutch RDW granted a <strong>provisional</strong> EU type-approval under Article 39 of Regulation (EU) 2018/858. Lithuania, Estonia, Denmark and Belgium have since accepted that approval on their own territory under Article 39(5). The Dutch certificate is <strong>not</strong> an EU-wide approval. Other Member States may accept it. They are not obliged to.</p>"
+    ],
+    "closing": [
+      "<p>These approvals are provisional. If the Commission refuses authorisation, they can be unwound six months later. Delay alone does not revoke them. That is why a clear yes at TCMV matters now, not after a later rewrite of UN Regulation No. 171.</p>",
+      "<p>RDW tested the system itself for more than 3,000 hours before issuing the file. Tesla has since published company figures of 5.2× fewer collisions over 65 million kilometres in the five approved countries (10 April–26 July 2026). Those are Tesla’s numbers, not an independent audit. I am not asking you to take marketing slides on trust. I am asking you to finish the review and say in public what {name} will do.</p>",
+      "<p>Yours sincerely,<br>{sigName}, {sigCity}<br>{sigVehicle}</p>"
+    ],
+    "askSupport": [
+      "<p>I ask you to instruct your representatives in the Technical Committee on Motor Vehicles to support Commission authorisation of the implementing act. A qualified majority needs 15 Member States and 65% of the EU population. A vote is widely expected in October 2026. {name} has already accepted this file. I am not asking you to recognise it again. I am asking you to vote yes, so a Commission refusal does not start the six-month unwind of the approvals we already have.</p>",
+      "<p>Please tell me how {name} will vote at TCMV.</p>"
+    ],
+    "askRecognise": [
+      "<p>I ask you to do two things. First, accept the Dutch provisional approval for use in {name}, so that compatible Hardware 4 vehicles can use the approved EU build here. Second, instruct your representatives in the Technical Committee on Motor Vehicles to support Commission authorisation of the implementing act. A qualified majority needs 15 Member States and 65% of the EU population. A vote is widely expected in October 2026.</p>",
+      "<p>Please tell me whether {name} will recognise the Dutch file nationally, and how you will vote at TCMV.</p>"
+    ],
+    "askRecogniseDE": [
+      "<p>I ask you to instruct your representatives in the Technical Committee on Motor Vehicles to support Commission authorisation of the implementing act. A qualified majority needs 15 Member States and 65% of the EU population. A vote is widely expected in October 2026. I understand {clause}. I am not asking you to pretend a national Article 39(5) recognition is already your stated path. I am asking for a public yes at TCMV.</p>",
+      "<p>Please tell me how {name} will vote at TCMV.</p>"
+    ],
+    "askRecogniseES": [
+      "<p>I ask you to instruct your representatives in the Technical Committee on Motor Vehicles to support Commission authorisation of the implementing act. A qualified majority needs 15 Member States and 65% of the EU population. A vote is widely expected in October 2026. I understand {clause}. I am not asking you to pretend a national Article 39(5) recognition is already your stated path. I am asking for a public yes at TCMV.</p>",
+      "<p>Please tell me how {name} will vote at TCMV.</p>"
+    ],
+    "askOpposed": [
+      "<p>I am not asking you to recognise the current product as it stands. I ask you to take a <strong>public position</strong> on the TCMV vote expected in October 2026 — a qualified majority needs 15 Member States and 65% of the EU population — and to say what would turn a no into a yes.</p>",
+      "<p>Please tell me how {name} will vote at TCMV.</p>"
+    ],
+    "askOpposedFR": "<p>{clause} I ask you to revisit that position, or at least to support a Commission act that would let a supervised, Level 2 system operate under clear EU conditions.</p>",
+    "askOpposedSE": "<p>{clause} If that is still Sweden’s view, please say so in public and say what change would turn it into a yes. A silent no at TCMV is the outcome I want you to avoid.</p>"
+  }
 }
   </script>
   <script src="js/i18n.js"></script>

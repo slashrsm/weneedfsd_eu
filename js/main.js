@@ -655,6 +655,7 @@
     if (!opts || !opts.silentHash) {
       history.replaceState(null, "", "#status-" + iso);
     }
+    syncLangNav();
     const narrow = window.matchMedia("(max-width: 959px)").matches;
     if (narrow && (!opts || !opts.skipScroll)) {
       const panel = document.getElementById("status-panel");
@@ -938,20 +939,34 @@
     }
   }
 
+  function targetLettersReviewed(loc) {
+    if (loc === localeFromPath()) return reviewedLetters();
+    const a = document.querySelector('.lang-nav a[data-locale="' + loc + '"]');
+    return !!(a && a.getAttribute("data-letters") === "reviewed");
+  }
+
+  function switcherHashFor(loc, hash) {
+    if (!hash) return "";
+    if (hash === "#letter" && !targetLettersReviewed(loc)) return "#status";
+    return hash;
+  }
+
+  function syncLangNav() {
+    if (typeof localeFromPath !== "function") return;
+    const here = localeFromPath();
+    const hash = location.hash || "";
+    $$(".lang-nav a[data-locale]").forEach((a) => {
+      const loc = a.getAttribute("data-locale");
+      const base = localeHome(loc);
+      a.setAttribute("href", base + switcherHashFor(loc, hash));
+      if (loc === here) a.setAttribute("aria-current", "page");
+      else a.removeAttribute("aria-current");
+    });
+  }
+
   function setupLangNav() {
-    function sync() {
-      const here = localeFromPath();
-      const hash = location.hash || "";
-      $$(".lang-nav a[data-locale]").forEach((a) => {
-        const loc = a.getAttribute("data-locale");
-        const base = localeHome(loc);
-        a.setAttribute("href", base + hash);
-        if (loc === here) a.setAttribute("aria-current", "page");
-        else a.removeAttribute("aria-current");
-      });
-    }
-    sync();
-    window.addEventListener("hashchange", sync);
+    syncLangNav();
+    window.addEventListener("hashchange", syncLangNav);
   }
 
   /* ---------- hash ---------- */
