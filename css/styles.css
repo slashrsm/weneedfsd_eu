@@ -422,8 +422,58 @@ h3 {
 
 @media (min-width: 960px) {
   #primary-nav {
-    display: block;
+    display: flex;
+    align-items: center;
     position: static;
+    gap: 8px;
+  }
+}
+
+.lang-nav {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  flex-shrink: 0;
+  font-size: var(--t-small);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.lang-nav a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  min-width: 32px;
+  padding: 0 6px;
+  color: rgba(255, 255, 255, 0.88);
+  text-decoration: none;
+}
+
+.lang-nav a[aria-current="page"] {
+  color: var(--white);
+  box-shadow: inset 0 -2px 0 var(--gold);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .lang-nav a:hover {
+    box-shadow: inset 0 -2px 0 var(--gold);
+  }
+}
+
+.lang-nav .lang-sep {
+  color: rgba(255, 255, 255, 0.48);
+  user-select: none;
+  pointer-events: none;
+}
+
+.lang-nav--bar { display: none; }
+
+@media (min-width: 960px) {
+  .lang-nav--drawer {
+    margin-left: 4px;
+    padding-left: 12px;
+    border-left: 1px solid rgba(255, 255, 255, 0.24);
   }
 }
 
@@ -439,6 +489,11 @@ h3 {
 
   .site-header [data-write] { display: none; }
   .nav-write-mobile { display: list-item; }
+  .lang-nav--bar {
+    display: flex;
+    margin-left: 8px;
+  }
+  html.nav-open .lang-nav--bar { visibility: hidden; }
   .nav-toggle {
     display: inline-flex;
     margin-left: 8px;
@@ -468,6 +523,22 @@ h3 {
     min-height: 48px;
     padding: 16px 24px;
   }
+
+  .lang-nav--drawer {
+    padding: 8px 24px 24px;
+    font-size: var(--t-h3);
+    gap: 4px;
+  }
+
+  .lang-nav--drawer a {
+    min-height: 48px;
+    min-width: 44px;
+    padding: 8px 10px;
+  }
+}
+
+@media (max-width: 359px) {
+  .lang-nav--bar { display: none; }
 }
 
 html.nav-open { overflow: hidden; }
@@ -1324,7 +1395,8 @@ html.nav-open { overflow: hidden; }
   border: 2px solid var(--navy);
 }
 
-.help-noneu-note {
+.help-noneu-note,
+.help-letters-note {
   margin-top: 16px;
   font-size: var(--t-small);
   color: var(--ink-muted);

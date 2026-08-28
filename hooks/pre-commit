@@ -2,9 +2,11 @@
 
 # Links this from .git/hooks/pre-commit
 
-# Update the last updated date in index.html
+# Update the last updated date in each locale homepage
 DATE=$(date '+%d %B %Y')
-sed -i '' -e "s/Last updated: .*/Last updated: $DATE/" index.html
-
-# Stage the updated file
-git add index.html
+for f in index.html sl/index.html it/index.html; do
+  if [ -f "$f" ]; then
+    sed -i '' -e "s/Last updated: .*/Last updated: $DATE/" "$f"
+    git add "$f"
+  fi
+done

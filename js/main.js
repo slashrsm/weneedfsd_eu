@@ -3,14 +3,6 @@
 (function () {
   "use strict";
 
-  const STATUS_LABEL = {
-    approved: "Approved",
-    in_review: "Under review",
-    opposed: "Opposed",
-    no_national_approval: "No decision",
-    non_eu: "Outside the EU",
-  };
-
   const STATUS_CLASS = {
     approved: "is-approved",
     in_review: "is-review",
@@ -20,17 +12,33 @@
   };
 
   const GROUP_META = [
-    { id: "approved", status: "approved", title: "Approved", openOnSmall: true },
-    { id: "review", status: "in_review", title: "Under review", openOnSmall: false },
-    { id: "opposed", status: "opposed", title: "Opposed", openOnSmall: true },
-    { id: "none", status: "no_national_approval", title: "No decision", openOnSmall: false },
-    { id: "noneu", status: "non_eu", title: "Outside the EU", openOnSmall: false },
+    { id: "approved", status: "approved", titleKey: "ui.groupApproved", openOnSmall: true },
+    { id: "review", status: "in_review", titleKey: "ui.groupReview", openOnSmall: false },
+    { id: "opposed", status: "opposed", titleKey: "ui.groupOpposed", openOnSmall: true },
+    { id: "none", status: "no_national_approval", titleKey: "ui.groupNone", openOnSmall: false },
+    { id: "noneu", status: "non_eu", titleKey: "ui.groupNoneu", openOnSmall: false },
   ];
 
-  const MONTHS = [
-    "January", "February", "March", "April", "May", "June",
-    "July", "August", "September", "October", "November", "December",
-  ];
+  function statusLabel(status) {
+    const key = "ui.statusLabels." + status;
+    const val = t(key);
+    if (!val || val === key) return status;
+    return val;
+  }
+
+  function groupTitle(g) {
+    return t(g.titleKey);
+  }
+
+  function monthName(index, short) {
+    const arr = t(short ? "ui.monthsShort" : "ui.months");
+    if (Array.isArray(arr) && arr[index]) return arr[index];
+    return "";
+  }
+
+  function reviewedLetters() {
+    return typeof lettersReviewed === "function" && lettersReviewed();
+  }
 
   let data = null;
   let selectedIso = null;
@@ -54,7 +62,7 @@
     if (!iso) return null;
     const [y, m, d] = iso.split("-").map(Number);
     if (!y || !m || !d) return iso;
-    return d + " " + MONTHS[m - 1] + " " + y;
+    return d + " " + monthName(m - 1, false) + " " + y;
   }
 
   function formatAsOf(iso) {
@@ -65,9 +73,8 @@
   function formatAsOfShort(iso) {
     if (!iso) return "";
     const [y, m, d] = iso.split("-").map(Number);
-    const short = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
     if (!y || !m || !d) return iso;
-    return d + " " + short[m - 1] + " " + y;
+    return d + " " + monthName(m - 1, true) + " " + y;
   }
 
   function escapeHtml(s) {
@@ -90,7 +97,7 @@
 
   async function loadData() {
     try {
-      const res = await fetch("data/status.json", { cache: "no-cache" });
+      const res = await fetch(asset("data/status.json"), { cache: "no-cache" });
       if (!res.ok) throw new Error(res.status);
       return await res.json();
     } catch (err) {
@@ -108,36 +115,39 @@
     const notYet = total - approved;
     const share = Math.round(data.euPopulationShareApproved * 1000) / 10;
     $("#counter-approved .stat-value").textContent = approved + " / " + total;
-    $("#counter-pending .stat-value").textContent = notYet + " not yet";
-    $("#counter-share .stat-value").textContent = "~" + share + "%";
+    $("#counter-pending .stat-value").textContent = t("ui.counterNotYet", { n: notYet });
+    $("#counter-share .stat-value").textContent = t("ui.counterShare", { share: share });
     const asOf = formatAsOf(data.asOf);
     const chip = $(".status-chip");
     if (chip) {
-      chip.textContent = approved + " / " + total + " approved · as\u00a0of " + formatAsOfShort(data.asOf);
+      chip.textContent = t("ui.statusChip", {
+        approved: approved,
+        total: total,
+        date: formatAsOfShort(data.asOf),
+      });
     }
     const q = $(".status-qualifier");
     if (q) {
-      q.textContent =
-        "A qualified majority needs " +
-        data.tcmvStatesNeeded +
-        " states and " +
-        Math.round(data.tcmvPopulationShareNeeded * 100) +
-        "% of people · EU vote " +
-        data.tcmvNext.label +
-        ", not on a published agenda · as\u00a0of " +
-        asOf +
-        ".";
+      q.textContent = t("ui.statusQualifier", {
+        states: data.tcmvStatesNeeded,
+        pct: Math.round(data.tcmvPopulationShareNeeded * 100),
+        label: data.tcmvNext.label,
+        asOf: asOf,
+      });
     }
     const src = $(".status-source");
     if (src && data.trackerUrl) {
-      src.innerHTML =
-        'A live third-party view of the same map is at <a class="text-link" href="' +
+      const link =
+        '<a class="text-link" href="' +
         escapeHtml(data.trackerUrl) +
-        '" target="_blank" rel="noopener">fsd-eu-tracker.de<span class="visually-hidden">, opens in a new window</span>' +
+        '" target="_blank" rel="noopener">' +
+        escapeHtml(t("ui.trackerName")) +
+        '<span class="visually-hidden">' +
+        escapeHtml(t("ui.opensNew")) +
+        "</span>" +
         extArrow() +
-        "</a>. We are not scraping that site. Figures are our reading of official notices, dated " +
-        asOf +
-        ".";
+        "</a>";
+      src.innerHTML = t("ui.statusSource", { link: link, asOf: escapeHtml(asOf) });
     }
   }
 
@@ -158,7 +168,7 @@
         "<summary><h3 id=\"" +
         hid +
         "\">" +
-        escapeHtml(g.title) +
+        escapeHtml(groupTitle(g)) +
         " <span class=\"count\">(" +
         members.length +
         ")</span></h3>" +
@@ -176,7 +186,7 @@
         btn.dataset.iso = c.iso;
         btn.dataset.status = c.status;
         btn.setAttribute("aria-pressed", "false");
-        const opposedWord = c.status === "opposed" ? " <span class=\"chip-tag\">Opposed</span>" : "";
+        const opposedWord = c.status === "opposed" ? " <span class=\"chip-tag\">" + escapeHtml(t("ui.chipOpposed")) + "</span>" : "";
         btn.innerHTML =
           '<span class="chip-swatch" aria-hidden="true"></span>' +
           escapeHtml(c.name) +
@@ -311,7 +321,7 @@
     panel.classList.toggle("is-approved", false);
     const c = selectedIso ? countryByIso(selectedIso) : null;
     if (!c) {
-      panel.innerHTML = '<p class="panel-empty">Choose a country to write to its ministry.</p>';
+      panel.innerHTML = '<p class="panel-empty">' + escapeHtml(t("ui.panelEmpty")) + "</p>";
       if (live) live.textContent = "";
       return;
     }
@@ -320,15 +330,18 @@
     const date = formatDate(c.date);
     const meta = [date, c.authority].filter(Boolean).join(" · ");
     const pillLabel =
-      c.status === "opposed" ? "Opposed" : STATUS_LABEL[c.status] || c.status;
+      c.status === "opposed" ? t("ui.chipOpposed") : statusLabel(c.status) || c.status;
+    const hiddenOpens = '<span class="visually-hidden">' + escapeHtml(t("ui.opensNew")) + "</span>";
     let cta = "";
     if (mode === "none") {
       cta =
-        '<a class="text-link" href="#faq-noneu">Why the United Kingdom, Switzerland and Norway cannot use Article 39</a>';
-    } else {
+        '<a class="text-link" href="#faq-noneu">' +
+        escapeHtml(t("ui.faqNoneu")) +
+        "</a>";
+    } else if (reviewedLetters()) {
       cta =
-        '<a class="btn btn-primary" href="#letter">Write to ' +
-        escapeHtml(c.authority) +
+        '<a class="btn btn-primary" href="#letter">' +
+        escapeHtml(t("ui.writeTo", { authority: c.authority })) +
         "</a>";
     }
     let openSite = "";
@@ -336,33 +349,39 @@
       openSite =
         '<a class="btn btn-secondary" href="' +
         escapeHtml(c.authorityUrl) +
-        '" target="_blank" rel="noopener">Open ' +
-        escapeHtml(c.authority) +
-        ' website<span class="visually-hidden">, opens in a new window</span>' +
+        '" target="_blank" rel="noopener">' +
+        escapeHtml(t("ui.openSite", { authority: c.authority })) +
+        hiddenOpens +
         extArrow() +
         "</a>";
     } else {
       openSite =
-        '<p class="letter-note">No official homepage on file — search for ' +
-        escapeHtml(c.authority) +
-        ".</p>";
+        '<p class="letter-note">' +
+        escapeHtml(t("ui.noHomepage", { authority: c.authority })) +
+        "</p>";
     }
     let extra = "";
     if (c.sourceUrl) {
       extra +=
         '<a class="text-link" href="' +
         escapeHtml(c.sourceUrl) +
-        '" target="_blank" rel="noopener">Official announcement<span class="visually-hidden">, opens in a new window</span>' +
+        '" target="_blank" rel="noopener">' +
+        escapeHtml(t("ui.officialAnnouncement")) +
+        hiddenOpens +
         extArrow() +
         "</a>";
     }
     if (c.status === "opposed") {
       extra +=
-        '<a class="text-link" href="#faq-opposed">Why France and Sweden said no</a>';
+        '<a class="text-link" href="#faq-opposed">' +
+        escapeHtml(t("ui.faqOpposed")) +
+        "</a>";
     }
     if (c.status === "approved") {
       extra +=
-        '<a class="text-link" href="#faq-lapse">What happens if the Commission says no</a>';
+        '<a class="text-link" href="#faq-lapse">' +
+        escapeHtml(t("ui.faqLapse")) +
+        "</a>";
     }
     panel.innerHTML =
       '<div class="panel-head"><h3>' +
@@ -384,87 +403,78 @@
     if (live) live.textContent = c.name + ", " + pillLabel;
   }
 
+  function letterField(key) {
+    const val = t("letter." + key);
+    if (val === "letter." + key) return "";
+    return val;
+  }
+
+  function fillLetter(parts, vars) {
+    const list = Array.isArray(parts) ? parts : parts ? [parts] : [];
+    const marked = {
+      name: true,
+      clause: true,
+      sigName: true,
+      sigCity: true,
+      sigVehicle: true,
+    };
+    return list
+      .map(function (html) {
+        return String(html).replace(/\{(\w+)\}/g, function (_, key) {
+          const val = vars && vars[key];
+          if (val == null || val === "") return "";
+          if (marked[key]) return mark(val);
+          return escapeHtml(val);
+        });
+      })
+      .join("");
+  }
+
+  function letterVars(c, extra) {
+    const vars = {
+      name: c.name,
+      authority: c.authority,
+      sigName: letterField("sigName"),
+      sigCity: letterField("sigCity"),
+      sigVehicle: letterField("sigVehicle"),
+    };
+    if (extra) Object.keys(extra).forEach(function (k) { vars[k] = extra[k]; });
+    return vars;
+  }
+
   function sharedOpening(c) {
-    return (
-      "<p>Dear Minister / Director,</p>" +
-      "<p>I am a resident of " +
-      mark(c.name) +
-      " writing about Tesla Full Self-Driving (Supervised). It is a SAE Level 2 driver-assistance system. The driver remains legally responsible.</p>" +
-      "<p>On 10 April 2026 the Dutch RDW granted a <strong>provisional</strong> EU type-approval under Article 39 of Regulation (EU) 2018/858. Lithuania, Estonia, Denmark and Belgium have since accepted that approval on their own territory under Article 39(5). The Dutch certificate is <strong>not</strong> an EU-wide approval. Other Member States may accept it. They are not obliged to.</p>"
-    );
+    return fillLetter(letterField("opening"), letterVars(c));
   }
 
   function sharedClosing(c) {
-    return (
-      "<p>These approvals are provisional. If the Commission refuses authorisation, they can be unwound six months later. Delay alone does not revoke them. That is why a clear yes at TCMV matters now, not after a later rewrite of UN Regulation No. 171.</p>" +
-      "<p>RDW tested the system itself for more than 3,000 hours before issuing the file. Tesla has since published company figures of 5.2× fewer collisions over 65 million kilometres in the five approved countries (10 April–26 July 2026). Those are Tesla’s numbers, not an independent audit. I am not asking you to take marketing slides on trust. I am asking you to finish the review and say in public what " +
-      mark(c.name) +
-      " will do.</p>" +
-      "<p>Yours sincerely,<br>" +
-      mark("[Name]") +
-      ", " +
-      mark("[city]") +
-      "<br>" +
-      mark("[I own a Hardware 4 Tesla / I own a Hardware 3 Tesla, which I understand is outside the current approval / I do not own a Tesla]") +
-      "</p>"
-    );
+    return fillLetter(letterField("closing"), letterVars(c));
   }
 
   function letterAsk(c, mode) {
     if (mode === "support") {
-      return (
-        "<p>I ask you to instruct your representatives in the Technical Committee on Motor Vehicles to support Commission authorisation of the implementing act. A qualified majority needs 15 Member States and 65% of the EU population. A vote is widely expected in October 2026. " +
-        mark(c.name) +
-        " has already accepted this file. I am not asking you to recognise it again. I am asking you to vote yes, so a Commission refusal does not start the six-month unwind of the approvals we already have.</p>" +
-        "<p>Please tell me how " +
-        mark(c.name) +
-        " will vote at TCMV.</p>"
-      );
+      return fillLetter(letterField("askSupport"), letterVars(c));
     }
-    if (mode === "recognise" && (c.iso === "DE" || c.iso === "ES")) {
-      const clause =
-        c.iso === "DE"
-          ? "Germany has said the KBA is assessing the file"
-          : "Spain has said it prefers coordination with the Commission rather than a unilateral copy of the Dutch approval";
-      return (
-        "<p>I ask you to instruct your representatives in the Technical Committee on Motor Vehicles to support Commission authorisation of the implementing act. A qualified majority needs 15 Member States and 65% of the EU population. A vote is widely expected in October 2026. I understand " +
-        mark(clause) +
-        ". I am not asking you to pretend a national Article 39(5) recognition is already your stated path. I am asking for a public yes at TCMV.</p>" +
-        "<p>Please tell me how " +
-        mark(c.name) +
-        " will vote at TCMV.</p>"
-      );
+    if (mode === "recognise" && c.iso === "DE") {
+      return fillLetter(letterField("askRecogniseDE"), letterVars(c, { clause: letterField("clauseDE") }));
+    }
+    if (mode === "recognise" && c.iso === "ES") {
+      return fillLetter(letterField("askRecogniseES"), letterVars(c, { clause: letterField("clauseES") }));
     }
     if (mode === "recognise") {
-      return (
-        "<p>I ask you to do two things. First, accept the Dutch provisional approval for use in " +
-        mark(c.name) +
-        ", so that compatible Hardware 4 vehicles can use the approved EU build here. Second, instruct your representatives in the Technical Committee on Motor Vehicles to support Commission authorisation of the implementing act. A qualified majority needs 15 Member States and 65% of the EU population. A vote is widely expected in October 2026.</p>" +
-        "<p>Please tell me whether " +
-        mark(c.name) +
-        " will recognise the Dutch file nationally, and how you will vote at TCMV.</p>"
-      );
+      return fillLetter(letterField("askRecognise"), letterVars(c));
     }
     if (mode === "opposed") {
-      let extra = "";
-      if (c.iso === "FR") {
-        extra =
-          "<p>" +
-          mark("Minister Tabarot declined national recognition of the current product on 22 July 2026.") +
-          " I ask you to revisit that position, or at least to support a Commission act that would let a supervised, Level 2 system operate under clear EU conditions.</p>";
-      } else if (c.iso === "SE") {
-        extra =
-          "<p>" +
-          mark("I understand Trafikverket’s April letter recommended a TCMV “no” unless the speed-offset is removed.") +
-          " If that is still Sweden’s view, please say so in public and say what change would turn it into a yes. A silent no at TCMV is the outcome I want you to avoid.</p>";
+      const parts = Array.isArray(letterField("askOpposed"))
+        ? letterField("askOpposed").slice()
+        : [letterField("askOpposed")].filter(Boolean);
+      if (c.iso === "FR" && letterField("askOpposedFR")) {
+        parts.splice(1, 0, letterField("askOpposedFR"));
+      } else if (c.iso === "SE" && letterField("askOpposedSE")) {
+        parts.splice(1, 0, letterField("askOpposedSE"));
       }
-      return (
-        "<p>I am not asking you to recognise the current product as it stands. I ask you to take a <strong>public position</strong> on the TCMV vote expected in October 2026 — a qualified majority needs 15 Member States and 65% of the EU population — and to say what would turn a no into a yes.</p>" +
-        extra +
-        "<p>Please tell me how " +
-        mark(c.name) +
-        " will vote at TCMV.</p>"
-      );
+      const clause =
+        c.iso === "FR" ? letterField("clauseFR") : c.iso === "SE" ? letterField("clauseSE") : "";
+      return fillLetter(parts, letterVars(c, { clause: clause }));
     }
     return "";
   }
@@ -472,6 +482,11 @@
   function renderLetter() {
     const root = document.getElementById("letter");
     if (!root) return;
+    if (!reviewedLetters()) {
+      root.hidden = true;
+      return;
+    }
+    root.hidden = false;
     const c = selectedIso ? countryByIso(selectedIso) : null;
     const mode = c ? letterMode(c.status) : null;
 
@@ -479,47 +494,68 @@
       const noneNote =
         mode === "none"
           ? "<p class=\"letter-note\">" +
-            escapeHtml(c.name) +
-            " cannot use Article 39. See <a class=\"text-link\" href=\"#faq-noneu\">United Kingdom, Switzerland and Norway</a>.</p>"
+            t("ui.noneuNote", {
+              name: escapeHtml(c.name),
+              link:
+                '<a class="text-link" href="#faq-noneu">' +
+                escapeHtml(t("ui.noneuNoteLink")) +
+                "</a>",
+            }) +
+            "</p>"
           : "";
       root.innerHTML =
-        "<header><p class=\"overline\">Letter</p><h3 id=\"letter-heading\">Choose a country first</h3></header>" +
+        "<header><p class=\"overline\">" +
+        escapeHtml(t("ui.letterOverlineEmpty")) +
+        "</p><h3 id=\"letter-heading\">" +
+        escapeHtml(t("ui.chooseCountry")) +
+        "</h3></header>" +
         noneNote +
-        '<p><button type="button" class="btn btn-secondary" id="letter-choose">Choose a country</button></p>';
+        '<p><button type="button" class="btn btn-secondary" id="letter-choose">' +
+        escapeHtml(t("ui.chooseCountryBtn")) +
+        "</button></p>";
       const choose = document.getElementById("letter-choose");
       if (choose) choose.addEventListener("click", goToPicker);
       return;
     }
 
+    const hiddenOpens = '<span class="visually-hidden">' + escapeHtml(t("ui.opensNew")) + "</span>";
     root.innerHTML =
       "<header class=\"letter-header\">" +
-      "<div><p class=\"overline\">Letter template</p><h3 id=\"letter-heading\">Send this to " +
-      escapeHtml(c.authority) +
+      "<div><p class=\"overline\">" +
+      escapeHtml(t("ui.letterOverline")) +
+      "</p><h3 id=\"letter-heading\">" +
+      escapeHtml(t("ui.sendTo", { authority: c.authority })) +
       "</h3></div>" +
       '<div class="letter-actions">' +
-      '<button type="button" class="btn btn-secondary" id="copy-letter">Copy letter</button>' +
+      '<button type="button" class="btn btn-secondary" id="copy-letter">' +
+      escapeHtml(t("ui.copyLetter")) +
+      "</button>" +
       (c.authorityUrl
         ? '<a class="btn btn-primary" id="open-authority" href="' +
           escapeHtml(c.authorityUrl) +
-          '" target="_blank" rel="noopener">Open ' +
-          escapeHtml(c.authority) +
-          ' website<span class="visually-hidden">, opens in a new window</span>' +
+          '" target="_blank" rel="noopener">' +
+          escapeHtml(t("ui.openSite", { authority: c.authority })) +
+          hiddenOpens +
           extArrow() +
           "</a>"
         : "") +
       "</div></header>" +
       (c.authorityUrl
         ? ""
-        : '<p class="letter-note">No official homepage on file — search for ' +
-          escapeHtml(c.authority) +
-          ".</p>") +
-      '<p class="letter-meta">Subject: Tesla FSD Supervised — please take a public position on the TCMV vote</p>' +
+        : '<p class="letter-note">' +
+          escapeHtml(t("ui.noHomepage", { authority: c.authority })) +
+          "</p>") +
+      '<p class="letter-meta">' +
+      escapeHtml(t("ui.letterSubjectLine", { subject: t("letter.subject") })) +
+      "</p>" +
       '<div class="letter-body" id="letter-body">' +
       sharedOpening(c) +
       letterAsk(c, mode) +
       sharedClosing(c) +
       "</div>" +
-      '<p class="letter-note">Citizens can paste this, fill the brackets, and send it in their own language if they prefer.</p>' +
+      '<p class="letter-note">' +
+      escapeHtml(t("ui.letterPaste")) +
+      "</p>" +
       '<p class="visually-hidden" id="copy-live" aria-live="polite"></p>';
 
     const copyBtn = document.getElementById("copy-letter");
@@ -533,7 +569,7 @@
     if (!body || !btn) return;
     const text = body.innerText;
     const restore = () => {
-      btn.textContent = "Copy letter";
+      btn.textContent = t("ui.copyLetter");
     };
     btn.disabled = true;
     const unlock = window.setTimeout(() => {
@@ -542,8 +578,8 @@
     const ok = () => {
       window.clearTimeout(unlock);
       btn.disabled = false;
-      btn.textContent = "Copied";
-      if (live) live.textContent = "Copied";
+      btn.textContent = t("ui.copied");
+      if (live) live.textContent = t("ui.copied");
       window.setTimeout(() => {
         restore();
         if (live) live.textContent = "";
@@ -553,7 +589,7 @@
       window.clearTimeout(unlock);
       btn.disabled = false;
       restore();
-      if (live) live.textContent = "Copy failed. Select the letter and copy it yourself.";
+      if (live) live.textContent = t("ui.copyFailed");
     };
     if (navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(text).then(ok, fail);
@@ -563,9 +599,12 @@
   }
 
   function updateWriteLinks() {
-    const href = selectedIso && letterMode(countryByIso(selectedIso).status) !== "none"
-      ? "#letter"
-      : "#status";
+    const href =
+      reviewedLetters() &&
+      selectedIso &&
+      letterMode(countryByIso(selectedIso).status) !== "none"
+        ? "#letter"
+        : "#status";
     $$("[data-write]").forEach((a) => {
       a.setAttribute("href", href);
     });
@@ -586,16 +625,16 @@
       card.classList.toggle("is-active", !!match);
       const btn = card.querySelector(".btn");
       if (!btn) return;
-      if (match) {
+      if (match && reviewedLetters()) {
         btn.setAttribute("href", "#letter");
         btn.classList.remove("btn-secondary");
         btn.classList.add("btn-primary");
-        btn.textContent = "Write the letter";
+        btn.textContent = t("ui.writeTheLetter");
       } else {
         btn.setAttribute("href", "#country-list");
         btn.classList.remove("btn-primary");
         btn.classList.add("btn-secondary");
-        btn.textContent = "Choose a country";
+        btn.textContent = t("ui.chooseCountryBtn");
       }
     });
     const note = $(".help-noneu-note");
@@ -633,7 +672,7 @@
 
   function onWriteActivate(e) {
     if (navOpen) setNav(false);
-    if (selectedIso) {
+    if (reviewedLetters() && selectedIso) {
       const c = countryByIso(selectedIso);
       if (c && letterMode(c.status) !== "none") return;
     }
@@ -645,7 +684,7 @@
     const card = e.currentTarget.closest(".action-card");
     if (!card) return;
     const c = selectedIso ? countryByIso(selectedIso) : null;
-    if (c && letterMode(c.status) === card.dataset.mode) return;
+    if (reviewedLetters() && c && letterMode(c.status) === card.dataset.mode) return;
     e.preventDefault();
     const groupSel = card.dataset.focusGroup;
     const group = groupSel ? document.querySelector(groupSel) : null;
@@ -722,8 +761,8 @@
   function trapMembers() {
     const brand = $(".brand");
     const toggle = $(".nav-toggle");
-    const write = $("[data-write]");
-    const links = $$("#nav-list a");
+    const write = $(".site-header [data-write]");
+    const links = $$("#primary-nav a");
     return [brand, toggle].concat(links).concat([write]).filter(Boolean);
   }
 
@@ -737,7 +776,7 @@
     if (nav) nav.classList.toggle("is-open", open);
     if (toggle) {
       toggle.setAttribute("aria-expanded", open ? "true" : "false");
-      toggle.setAttribute("aria-label", open ? "Close menu" : "Menu");
+      toggle.setAttribute("aria-label", open ? t("ui.closeMenu") : t("ui.menu"));
       const menu = toggle.querySelector(".icon-menu");
       const close = toggle.querySelector(".icon-close");
       if (menu) menu.hidden = open;
@@ -762,7 +801,7 @@
     if (toggle) {
       toggle.addEventListener("click", () => setNav(!navOpen));
     }
-    $$("#nav-list a").forEach((a) => {
+    $$("#primary-nav a").forEach((a) => {
       a.addEventListener("click", () => {
         if (navOpen) setNav(false);
       });
@@ -831,7 +870,7 @@
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
 
     function setPausedUI(paused) {
-      btn.setAttribute("aria-label", paused ? "Play film" : "Pause video");
+      btn.setAttribute("aria-label", paused ? t("ui.playFilm") : t("ui.pauseVideo"));
       const play = btn.querySelector(".icon-play");
       const pause = btn.querySelector(".icon-pause");
       if (play) play.hidden = !paused;
@@ -886,6 +925,35 @@
     }
   }
 
+  /* ---------- i18n chrome ---------- */
+
+  function applyLetterVisibility() {
+    const root = document.getElementById("letter");
+    const note = document.getElementById("help-letters-note");
+    const ok = reviewedLetters();
+    if (root) root.hidden = !ok;
+    if (note) {
+      note.hidden = ok;
+      if (!ok && !note.textContent.trim()) note.textContent = t("ui.helpLettersNote");
+    }
+  }
+
+  function setupLangNav() {
+    function sync() {
+      const here = localeFromPath();
+      const hash = location.hash || "";
+      $$(".lang-nav a[data-locale]").forEach((a) => {
+        const loc = a.getAttribute("data-locale");
+        const base = localeHome(loc);
+        a.setAttribute("href", base + hash);
+        if (loc === here) a.setAttribute("aria-current", "page");
+        else a.removeAttribute("aria-current");
+      });
+    }
+    sync();
+    window.addEventListener("hashchange", sync);
+  }
+
   /* ---------- hash ---------- */
 
   function honourHash() {
@@ -901,9 +969,16 @@
   /* ---------- boot ---------- */
 
   async function init() {
+    try {
+      if (typeof loadI18n === "function") await loadI18n();
+    } catch (err) {
+      /* t() falls back to keys; prerendered HTML stays */
+    }
+    applyLetterVisibility();
     setupNav();
     setupAccordion();
     setupVideo();
+    setupLangNav();
 
     $$("[data-write]").forEach((a) => a.addEventListener("click", onWriteActivate));
     $$(".action-card .btn").forEach((a) => a.addEventListener("click", onHelpCardActivate));
@@ -921,7 +996,7 @@
       if (list) {
         const p = document.createElement("p");
         p.className = "letter-note";
-        p.textContent = "Could not load country data. Serve this folder over http to enable the picker.";
+        p.textContent = t("ui.loadError");
         list.appendChild(p);
       }
       return;
