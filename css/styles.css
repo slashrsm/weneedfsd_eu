@@ -1441,6 +1441,8 @@ blockquote.testimonial p {
 
 #faq .wrap { max-width: 48rem; }
 
+#faq ul,ol { margin-left: 1em; }
+
 .accordion { border-top: 1px solid var(--rule); }
 
 .acc-item { border-bottom: 1px solid var(--rule); }
