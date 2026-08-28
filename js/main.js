@@ -96,15 +96,21 @@
   /* ---------- data ---------- */
 
   async function loadData() {
-    try {
-      const res = await fetch(asset("data/status.json"), { cache: "no-cache" });
-      if (!res.ok) throw new Error(res.status);
-      return await res.json();
-    } catch (err) {
-      const embed = document.getElementById("status-data");
-      if (embed) return JSON.parse(embed.textContent);
-      throw err;
+    const locale = localeFromPath();
+    const urls = [];
+    if (locale !== "en") urls.push(asset("data/status." + locale + ".json"));
+    urls.push(asset("data/status.json"));
+    for (const url of urls) {
+      try {
+        const res = await fetch(url, { cache: "no-cache" });
+        if (res.ok) return await res.json();
+      } catch (err) {
+        /* try next */
+      }
     }
+    const embed = document.getElementById("status-data");
+    if (embed) return JSON.parse(embed.textContent);
+    throw new Error("status");
   }
 
   /* ---------- render ---------- */
