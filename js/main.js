@@ -102,6 +102,15 @@
 
   /* ---------- render ---------- */
 
+
+  function stampLastUpdated() {
+    const el = document.getElementById("last-updated");
+    if (!el) return;
+    const d = new Date(document.lastModified);
+    if (isNaN(d.getTime())) return;
+    el.textContent = "Last updated: " + d.getDate() + " " + MONTHS[d.getMonth()] + " " + d.getFullYear() + ".";
+  }
+
   function renderCounters() {
     const approved = data.euApproved;
     const total = data.euTotal;
@@ -903,6 +912,7 @@
   /* ---------- boot ---------- */
 
   async function init() {
+    stampLastUpdated();
     setupNav();
     setupAccordion();
     setupVideo();
