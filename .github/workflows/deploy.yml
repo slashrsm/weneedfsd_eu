@@ -24,6 +24,9 @@ jobs:
           fetch-depth: 0  # Fetch all history for .GitInfo and .Lastmod
           lfs: true
 
+      - name: Stamp Last updated
+        run: python3 scripts/stamp_last_updated.py
+
       - name: ❌ Turn off LFS
         run: >-
           git lfs uninstall;
