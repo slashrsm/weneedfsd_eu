@@ -1,0 +1,2 @@
+- When updating data you should always re-generate the html file(s) before committing. 
+- Before committing always check if any dates that we list on the page (Last updated, last status update, ...) need update. 
