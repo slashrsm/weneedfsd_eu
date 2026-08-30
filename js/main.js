@@ -352,7 +352,9 @@
       extra +=
         '<a class="text-link" href="' +
         escapeHtml(c.sourceUrl) +
-        '" target="_blank" rel="noopener">Official announcement<span class="visually-hidden">, opens in a new window</span>' +
+        '" target="_blank" rel="noopener">' +
+        escapeHtml(c.sourceLabel || "Official announcement") +
+        '<span class="visually-hidden">, opens in a new window</span>' +
         extArrow() +
         "</a>";
     }
