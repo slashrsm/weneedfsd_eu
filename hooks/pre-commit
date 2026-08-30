@@ -1,10 +1,5 @@
 #!/bin/bash
-
-# Links this from .git/hooks/pre-commit
-
-# Update the last updated date in index.html
-DATE=$(date '+%d %B %Y')
-sed -i '' -e "s/Last updated: .*/Last updated: $DATE/" index.html
-
-# Stage the updated file
-git add index.html
+# Optional local stamp. GitHub Pages deploy also stamps at publish time.
+ROOT="$(git rev-parse --show-toplevel)"
+python3 "$ROOT/scripts/stamp_last_updated.py"
+git add "$ROOT/index.html"
