@@ -408,7 +408,7 @@
   function sharedClosing(c) {
     return (
       "<p>These approvals are provisional. If the Commission refuses authorisation, they can be unwound six months later. Delay alone does not revoke them. That is why a clear yes at TCMV matters now, not after a later rewrite of UN Regulation No. 171.</p>" +
-      "<p>RDW tested the system itself for more than 3,000 hours before issuing the file. Tesla has since published company figures of 5.2× fewer collisions over 65 million kilometres in the five approved countries (10 April–26 July 2026). Those are Tesla’s numbers, not an independent audit. I am not asking you to take marketing slides on trust. I am asking you to finish the review and say in public what " +
+      "<p>RDW tested the system itself for more than 3,000 hours before issuing the file. Tesla has since published company figures of 4.1× fewer crashes across 100 million kilometres on public EU roads (1 September 2026). Those are Tesla’s numbers, not an independent audit. I am not asking you to take marketing slides on trust. I am asking you to finish the review and say in public what " +
       mark(c.name) +
       " will do.</p>" +
       "<p>Yours sincerely,<br>" +
