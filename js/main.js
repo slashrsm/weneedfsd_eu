@@ -369,7 +369,11 @@
     }
     if (c.status === "opposed") {
       extra +=
-        '<a class="text-link" href="#faq-opposed">Why France and Sweden said no</a>';
+        '<a class="text-link" href="#faq-opposed">Why France said no</a>';
+    }
+    if (c.iso === "SE") {
+      extra +=
+        '<a class="text-link" href="#faq-opposed">Speed-offset and Sweden’s written answer</a>';
     }
     if (c.status === "approved") {
       extra +=
@@ -432,6 +436,17 @@
         " will vote at TCMV.</p>"
       );
     }
+    if (mode === "recognise" && c.iso === "SE") {
+      return (
+        "<p>I understand " +
+        mark("Trafikverket’s April letter recommended a TCMV no unless Speed Offset is removed.") +
+        " Infrastrukturminister Carlson’s written answer of 1 September 2026 restates a union-wide ADAS ambition while still taking Trafikverket into account. That is not a locked yes.</p>" +
+        "<p>I ask you to take a public TCMV line, and to say whether Sweden will recognise the Dutch file nationally if you can. A qualified majority needs 15 Member States and 65% of the EU population. A vote is widely expected in October 2026.</p>" +
+        "<p>Please tell me how " +
+        mark(c.name) +
+        " will vote at TCMV, and whether you will recognise the Dutch file nationally if you can.</p>"
+      );
+    }
     if (mode === "recognise" && (c.iso === "DE" || c.iso === "ES")) {
       const clause =
         c.iso === "DE"
@@ -463,12 +478,6 @@
           "<p>" +
           mark("Minister Tabarot declined national recognition of the current product on 22 July 2026.") +
           " I ask you to revisit that position, or at least to support a Commission act that would let a supervised, Level 2 system operate under clear EU conditions.</p>";
-      } else if (c.iso === "SE") {
-        extra =
-          "<p>" +
-          mark("I understand Trafikverket’s April letter recommended a TCMV “no” unless the speed-offset is removed.") +
-          " If that is still Sweden’s view, please say so in public and say what change would turn it into a yes. A silent no at TCMV is the outcome I want you to avoid.</p>";
-      }
       return (
         "<p>I am not asking you to recognise the current product as it stands. I ask you to take a <strong>public position</strong> on the TCMV vote expected in October 2026 — a qualified majority needs 15 Member States and 65% of the EU population — and to say what would turn a no into a yes.</p>" +
         extra +
