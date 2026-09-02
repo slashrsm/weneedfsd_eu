@@ -478,6 +478,7 @@
           "<p>" +
           mark("Minister Tabarot declined national recognition of the current product on 22 July 2026.") +
           " I ask you to revisit that position, or at least to support a Commission act that would let a supervised, Level 2 system operate under clear EU conditions.</p>";
+      }
       return (
         "<p>I am not asking you to recognise the current product as it stands. I ask you to take a <strong>public position</strong> on the TCMV vote expected in October 2026 — a qualified majority needs 15 Member States and 65% of the EU population — and to say what would turn a no into a yes.</p>" +
         extra +
