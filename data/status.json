@@ -1,5 +1,5 @@
 {
-  "asOf": "2026-08-27",
+  "asOf": "2026-09-01",
   "euApproved": 5,
   "euTotal": 27,
   "euPopulationShareApproved": 0.089,
@@ -11,7 +11,7 @@
     "note": "Traficom (23 Jun 2026) and Reuters (6 Aug 2026) expect a vote in October. Trade press and trackers name 6 October 2026. Not on a published Commission TCMV agenda as of 2026-08-27."
   },
   "trackerUrl": "https://fsd-eu-tracker.de/en/",
-  "sourcesNote": "Statuses from official notices and the 27 August 2026 research brief. Tracker is a third-party view, not scraped live by this site.",
+  "sourcesNote": "Statuses from official notices. Sweden row updated 1 September 2026 from Riksdag written answer 2025/26:1000. Tracker is a third-party view, not scraped live by this site.",
   "countries": [
     {
       "iso": "NL",
@@ -151,13 +151,14 @@
     {
       "iso": "SE",
       "name": "Sweden",
-      "status": "opposed",
-      "date": "2026-04-30",
-      "authority": "Trafikverket (letter) / Transportstyrelsen (TCMV seat)",
-      "authorityUrl": "https://www.transportstyrelsen.se",
+      "status": "in_review",
+      "date": "2026-09-01",
+      "authority": "Infrastrukturdepartementet (Carlson) / Trafikverket / Transportstyrelsen (TCMV seat)",
+      "authorityUrl": "https://www.regeringen.se",
       "populationM": 10.6,
-      "blurb": "No customer approval. Trafikverket’s 30 April TCMV letter recommends a no unless Speed Offset is removed. Testing is not a national go-ahead.",
-      "sourceUrl": "https://www.reuters.com/business/autos-transportation/sweden-may-oppose-teslas-supervised-self-driving-tech-europe-over-speeding-2026-06-18/"
+      "blurb": "No customer approval. Trafikverket’s 30 April TCMV letter recommends a no unless Speed Offset is removed. Infrastrukturminister Carlson’s written answer (letter 31 August, published 1 September 2026) restates a union-wide ADAS ambition and still takes Trafikverket into account. That is not a locked TCMV yes.",
+      "sourceUrl": "https://www.riksdagen.se/sv/dokument-och-lagar/dokument/skriftlig-fraga/sveriges-standpunkt-i-eu-gallande-behandling-av_hd111000/",
+      "sourceLabel": "Riksdag written answer 2025/26:1000"
     },
     {
       "iso": "PT",
