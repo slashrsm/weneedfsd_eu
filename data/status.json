@@ -1,8 +1,8 @@
 {
-  "asOf": "2026-09-01",
-  "euApproved": 5,
+  "asOf": "2026-09-07",
+  "euApproved": 6,
   "euTotal": 27,
-  "euPopulationShareApproved": 0.089,
+  "euPopulationShareApproved": 0.094,
   "tcmvStatesNeeded": 15,
   "tcmvPopulationShareNeeded": 0.65,
   "tcmvNext": {
@@ -11,7 +11,7 @@
     "note": "Traficom (23 Jun 2026) and Reuters (6 Aug 2026) expect a vote in October. Trade press and trackers name 6 October 2026. Not on a published Commission TCMV agenda as of 2026-08-27."
   },
   "trackerUrl": "https://fsd-eu-tracker.de/en/",
-  "sourcesNote": "Statuses from official notices. Sweden row updated 1 September 2026 from Riksdag written answer 2025/26:1000. Tracker is a third-party view, not scraped live by this site.",
+  "sourcesNote": "Statuses from official notices. Slovenia row updated 7 September 2026 from Tesla Europe announcement (pending AVP/ministry primary). Sweden row updated 1 September 2026 from Riksdag written answer 2025/26:1000. Tracker is a third-party view, not scraped live by this site.",
   "countries": [
     {
       "iso": "NL",
@@ -265,13 +265,14 @@
     {
       "iso": "SI",
       "name": "Slovenia",
-      "status": "no_national_approval",
-      "date": null,
-      "authority": "Ministrstvo za infrastrukturo",
-      "authorityUrl": null,
+      "status": "approved",
+      "date": "2026-09-07",
+      "authority": "AVP / Ministrstvo za infrastrukturo (per Tesla Europe)",
+      "authorityUrl": "https://www.gov.si/drzavni-organi/ministrstva/ministrstvo-za-infrastrukturo/",
       "populationM": 2.1,
-      "blurb": "No primary national decision found. Ask for a public position.",
-      "sourceUrl": null
+      "blurb": "Tesla Europe announced national approval of FSD (Supervised) on 7 September 2026; rollout to begin soon. Recognition of the Dutch Article 39 file is implied. No AVP or ministry communiqué located at the time of this update — treat as a company announcement pending official confirmation. HW4 / AI4 only. Driver remains responsible. Not EU-wide TCMV approval.",
+      "sourceUrl": "https://x.com/teslaeurope/status/2097007168939593780",
+      "sourceLabel": "Tesla Europe (company announcement)"
     },
     {
       "iso": "LV",
