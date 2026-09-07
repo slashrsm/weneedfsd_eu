@@ -405,7 +405,7 @@
       "<p>I am a resident of " +
       mark(c.name) +
       " writing about Tesla Full Self-Driving (Supervised). It is a SAE Level 2 driver-assistance system. The driver remains legally responsible.</p>" +
-      "<p>On 10 April 2026 the Dutch RDW granted a <strong>provisional</strong> EU type-approval under Article 39 of Regulation (EU) 2018/858. Lithuania, Estonia, Denmark and Belgium have since accepted that approval on their own territory under Article 39(5). The Dutch certificate is <strong>not</strong> an EU-wide approval. Other Member States may accept it. They are not obliged to.</p>"
+      "<p>On 10 April 2026 the Dutch RDW granted a <strong>provisional</strong> EU type-approval under Article 39 of Regulation (EU) 2018/858. Lithuania, Estonia, Denmark, Belgium and Slovenia have since accepted that approval on their own territory under Article 39(5). The Dutch certificate is <strong>not</strong> an EU-wide approval. Other Member States may accept it. They are not obliged to.</p>"
     );
   }
 
