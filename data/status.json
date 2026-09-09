@@ -1,5 +1,5 @@
 {
-  "asOf": "2026-09-08",
+  "asOf": "2026-09-09",
   "euApproved": 6,
   "euTotal": 27,
   "euPopulationShareApproved": 0.094,
@@ -8,10 +8,10 @@
   "tcmvNext": {
     "label": "expected October 2026",
     "confirmed": false,
-    "note": "Traficom (23 Jun 2026) and Reuters (6 Aug 2026) expect a vote in October. Trade press and trackers name 6 October 2026. Not on a published Commission TCMV agenda as of 2026-08-27."
+    "note": "Traficom (23 Jun 2026) and Reuters (6 Aug 2026) expect a vote in October. Trade press and trackers name 6 October 2026 — Tesla-expected / trade-press, not Commission-confirmed. Not on a published Commission TCMV agenda as of 2026-09-09."
   },
   "trackerUrl": "https://fsd-eu-tracker.de/en/",
-  "sourcesNote": "Statuses from official notices. Slovenia row updated 8 September 2026 from Ministrstvo za infrastrukturo (X) confirming recognition of the provisional FSD (Supervised) homologation; Tesla Europe 7 Sep and Minister Vrtovec RT the same evening. Sweden row updated 1 September 2026 from Riksdag written answer 2025/26:1000. Tracker is a third-party view, not scraped live by this site.",
+  "sourcesNote": "Statuses from official notices. Slovenia row updated 9 September 2026 from AVP confirming temporary recognition of the Dutch provisional FSD (Supervised) type approval (recognition 7 Sep; AVP notice 8 Sep); Reuters 8 Sep; ministry X secondary. Sweden row updated 1 September 2026 from Riksdag written answer 2025/26:1000. Tracker is a third-party view, not scraped live by this site.",
   "countries": [
     {
       "iso": "NL",
@@ -21,7 +21,7 @@
       "authority": "RDW",
       "authorityUrl": "https://www.rdw.nl",
       "populationM": 18.0,
-      "blurb": "Provisional EU type-approval under Article 39, valid in the Netherlands. First in Europe. HW4 / AI4 only. Subscribe in the Tesla app.",
+      "blurb": "Provisional EU type-approval under Article 39, valid in the Netherlands. First in Europe. Subscribe in the Tesla app.",
       "sourceUrl": "https://www.rdw.nl/en/news/2026/rdw-explanation-of-european-type-approval-tesla-with-provisional-validity-in-the-netherlands"
     },
     {
@@ -43,7 +43,7 @@
       "authority": "Transpordiamet",
       "authorityUrl": "https://www.transpordiamet.ee",
       "populationM": 1.4,
-      "blurb": "Recognises the Dutch type-approval. Official page: SAE Level 2; driver fully responsible.",
+      "blurb": "Recognises the Dutch type-approval. Official page classifies it as SAE Level 2.",
       "sourceUrl": "https://transpordiamet.ee/uudised/transpordiamet-kiitis-heaks-tesla-juhiabisusteemi-hollandi-tuubikinnituse"
     },
     {
@@ -65,7 +65,7 @@
       "authority": "Flemish Minister of Mobility (nationwide effect)",
       "authorityUrl": "https://www.vlaanderen.be",
       "populationM": 11.9,
-      "blurb": "Annick De Ridder (Flemish Minister of Mobility) signed recognition of the Dutch Article 39 file on 10 June 2026. Reporting, including VRT, says a regional type-approval signature has nationwide effect. Driver remains responsible. Not EU-wide TCMV approval.",
+      "blurb": "Annick De Ridder (Flemish Minister of Mobility) signed recognition of the Dutch Article 39 file on 10 June 2026. Reporting, including VRT, says a regional type-approval signature has nationwide effect.",
       "sourceUrl": "https://www.vrt.be/vrtnws/en/2026/06/11/flanders-oks-self-driving-teslas-on-public-highway/",
       "sourceLabel": "Belgian reporting on the signature"
     },
@@ -268,11 +268,11 @@
       "status": "approved",
       "date": "2026-09-07",
       "authority": "Ministrstvo za infrastrukturo (Vrtovec / Dvornik) / AVP",
-      "authorityUrl": "https://www.gov.si/drzavni-organi/ministrstva/ministrstvo-za-infrastrukturo/",
+      "authorityUrl": "https://www.avp-rs.si/",
       "populationM": 2.1,
-      "blurb": "National recognition of the Dutch provisional FSD (Supervised) homologation, confirmed by the ministry on 8 September 2026. Tesla Europe announced 7 September; Minister Jernej Vrtovec amplified that evening. Rollout to begin soon. State secretary Marko Dvornik said the recognition also signals Slovenia’s stance for the EU-level vote expected in October. HW4 / AI4 only. Driver remains responsible. Not itself an EU-wide TCMV act.",
-      "sourceUrl": "https://x.com/mzie_rs/status/2097246511281193232",
-      "sourceLabel": "Ministrstvo za infrastrukturo (X)"
+      "blurb": "AVP confirmed temporary recognition of the Dutch provisional FSD (Supervised) type approval (7 September 2026; AVP notice 8 September). Driver assistance, not autonomy. EU-wide decision still pending; a vote is foreseen for October 2026. Tesla Europe announced 7 September; ministry amplified the same evening. Rollout to begin soon.",
+      "sourceUrl": "https://www.avp-rs.si/tesla-fsd-supervised-tudi-v-sloveniji-napredni-sistem-za-pomoc-vozniku-ne-avtonomna-voznja/",
+      "sourceLabel": "AVP (Agencija za varnost prometa)"
     },
     {
       "iso": "LV",
@@ -282,7 +282,7 @@
       "authority": "Ministry of Transport",
       "authorityUrl": null,
       "populationM": 1.9,
-      "blurb": "Baltic rumours of an imminent sign-off were not matched by a published decision as of 27 August 2026.",
+      "blurb": "Baltic rumours of an imminent sign-off were not matched by a published decision as of 9 September 2026.",
       "sourceUrl": null
     },
     {
