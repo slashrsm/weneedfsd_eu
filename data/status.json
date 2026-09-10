@@ -1,5 +1,5 @@
 {
-  "asOf": "2026-09-09",
+  "asOf": "2026-09-10",
   "euApproved": 6,
   "euTotal": 27,
   "euPopulationShareApproved": 0.094,
@@ -8,7 +8,7 @@
   "tcmvNext": {
     "label": "expected October 2026",
     "confirmed": false,
-    "note": "Traficom (23 Jun 2026) and Reuters (6 Aug 2026) expect a vote in October. Trade press and trackers name 6 October 2026 — Tesla-expected / trade-press, not Commission-confirmed. Not on a published Commission TCMV agenda as of 2026-09-09."
+    "note": "Traficom (23 Jun 2026) and Reuters (6 Aug 2026) expect a vote in October. Trade press and trackers name 6 October 2026 — Tesla-expected / trade-press, not Commission-confirmed. Not on a published Commission TCMV agenda as of 2026-09-10."
   },
   "trackerUrl": "https://fsd-eu-tracker.de/en/",
   "sourcesNote": "Statuses from official notices. Slovenia row updated 9 September 2026 from AVP confirming temporary recognition of the Dutch provisional FSD (Supervised) type approval (recognition 7 Sep; AVP notice 8 Sep); Reuters 8 Sep; ministry X secondary. Sweden row updated 1 September 2026 from Riksdag written answer 2025/26:1000. Tracker is a third-party view, not scraped live by this site.",
