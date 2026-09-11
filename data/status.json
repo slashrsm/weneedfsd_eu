@@ -1,5 +1,5 @@
 {
-  "asOf": "2026-09-10",
+  "asOf": "2026-09-11",
   "euApproved": 6,
   "euTotal": 27,
   "euPopulationShareApproved": 0.094,
@@ -8,10 +8,10 @@
   "tcmvNext": {
     "label": "expected October 2026",
     "confirmed": false,
-    "note": "Traficom (23 Jun 2026) and Reuters (6 Aug 2026) expect a vote in October. Trade press and trackers name 6 October 2026 — Tesla-expected / trade-press, not Commission-confirmed. Not on a published Commission TCMV agenda as of 2026-09-10."
+    "note": "Traficom (23 Jun 2026) and Reuters (6 Aug 2026) expect a vote in October. Trade press and trackers name 6 October 2026 — Tesla-expected / trade-press, not Commission-confirmed. Not on a published Commission TCMV agenda as of 2026-09-11."
   },
   "trackerUrl": "https://fsd-eu-tracker.de/en/",
-  "sourcesNote": "Statuses from official notices. Slovenia row updated 9 September 2026 from AVP confirming temporary recognition of the Dutch provisional FSD (Supervised) type approval (recognition 7 Sep; AVP notice 8 Sep); Reuters 8 Sep; ministry X secondary. Sweden row updated 1 September 2026 from Riksdag written answer 2025/26:1000. Tracker is a third-party view, not scraped live by this site.",
+  "sourcesNote": "Statuses from official notices. Slovenia row updated 11 September 2026: early customer unlocks / first drives reported (owner posts, secondary; Tesla Europe 7 Sep still “Rollout will begin soon,” no formal “now live for all SI” notice). AVP temporary recognition 7 Sep (notice 8 Sep); Reuters 8 Sep; ministry X secondary. Sweden row updated 1 September 2026 from Riksdag written answer 2025/26:1000. Tracker is a third-party view, not scraped live by this site.",
   "countries": [
     {
       "iso": "NL",
@@ -270,7 +270,7 @@
       "authority": "Ministrstvo za infrastrukturo (Vrtovec / Dvornik) / AVP",
       "authorityUrl": "https://www.avp-rs.si/",
       "populationM": 2.1,
-      "blurb": "AVP confirmed temporary recognition of the Dutch provisional FSD (Supervised) type approval (7 September 2026; AVP notice 8 September). Driver assistance, not autonomy. EU-wide decision still pending; a vote is foreseen for October 2026. Tesla Europe announced 7 September; ministry amplified the same evening. Rollout to begin soon.",
+      "blurb": "AVP confirmed temporary recognition of the Dutch provisional FSD (Supervised) type approval (7 September 2026; AVP notice 8 September). Driver assistance, not autonomy. Early SI customer unlocks and first drives reported around 10–11 September 2026 (owner posts, secondary — e.g. Jan Skočaj; Igor Vovk). Confirm in the Tesla app; Tesla Europe’s 7 September line was still “Rollout will begin soon,” with no formal “now live for all SI” company notice. EU-wide decision still pending; a vote is foreseen for October 2026.",
       "sourceUrl": "https://www.avp-rs.si/tesla-fsd-supervised-tudi-v-sloveniji-napredni-sistem-za-pomoc-vozniku-ne-avtonomna-voznja/",
       "sourceLabel": "AVP (Agencija za varnost prometa)"
     },
