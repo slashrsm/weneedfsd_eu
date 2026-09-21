@@ -1,17 +1,17 @@
 {
-  "asOf": "2026-09-18",
-  "euApproved": 6,
+  "asOf": "2026-09-21",
+  "euApproved": 7,
   "euTotal": 27,
-  "euPopulationShareApproved": 0.094,
+  "euPopulationShareApproved": 0.118,
   "tcmvStatesNeeded": 15,
   "tcmvPopulationShareNeeded": 0.65,
   "tcmvNext": {
     "label": "expected October 2026",
     "confirmed": false,
-    "note": "Traficom (23 Jun 2026) and Reuters (6 Aug 2026) expect a vote in October. Trade press and trackers name 6 October 2026 — Tesla-expected / trade-press, not Commission-confirmed. Not on a published Commission TCMV agenda as of 2026-09-18."
+    "note": "Traficom (23 Jun 2026) and Reuters (6 Aug 2026) expect a vote in October. Trade press and trackers name 6 October 2026 — Tesla-expected / trade-press, not Commission-confirmed. Not on a published Commission TCMV agenda as of 2026-09-21."
   },
   "trackerUrl": "https://fsd-eu-tracker.de/en/",
-  "sourcesNote": "Statuses from official notices. Spain row updated 17 September 2026: Tesla Europe (16 Sep) reported ~460,000 km of FSD (Supervised) company testing over two years under DGT / ES-AV — not customer unlock / not Dutch-file recognition; Hereu July line (EU-path, not unilateral) unchanged. Slovenia row updated 11 September 2026: early customer unlocks / first drives reported (owner posts, secondary; Tesla Europe 7 Sep still “Rollout will begin soon,” no formal “now live for all SI” notice). AVP temporary recognition 7 Sep (notice 8 Sep); Reuters 8 Sep; ministry X secondary. Sweden row updated 1 September 2026 from Riksdag written answer 2025/26:1000. Tracker is a third-party view, not scraped live by this site.",
+  "sourcesNote": "Statuses from official notices. Czechia row updated 21 September 2026 from Tesla Europe announcement (pending ministry / MDČR primary). Spain row updated 17 September 2026: Tesla Europe (16 Sep) reported ~460,000 km of FSD (Supervised) company testing over two years under DGT / ES-AV — not customer unlock / not Dutch-file recognition; Hereu July line (EU-path, not unilateral) unchanged. Slovenia row updated 11 September 2026: early customer unlocks / first drives reported (owner posts, secondary; Tesla Europe 7 Sep still “Rollout will begin soon,” no formal “now live for all SI” notice). AVP temporary recognition 7 Sep (notice 8 Sep); Reuters 8 Sep; ministry X secondary. Sweden row updated 1 September 2026 from Riksdag written answer 2025/26:1000. Tracker is a third-party view, not scraped live by this site.",
   "countries": [
     {
       "iso": "NL",
@@ -140,14 +140,14 @@
     {
       "iso": "CZ",
       "name": "Czechia",
-      "status": "in_review",
-      "date": null,
-      "authority": "Ministerstvo dopravy",
+      "status": "approved",
+      "date": "2026-09-21",
+      "authority": "Ministerstvo dopravy (per Tesla Europe)",
       "authorityUrl": "https://md.gov.cz",
       "populationM": 10.9,
-      "blurb": "Named by Germany’s BMV (Hirte, 25 August 2026) among Member States that have registered further examination need at TCMV. That is not a national customer approval and not a published yes/no.",
-      "sourceUrl": "https://www.abgeordnetenwatch.de/profile/christian-hirte/fragen-antworten/sie-kuendigten-am-177-an-das-kba-erhalte-im-juli-ein-tesla-fahrzeug-zur-fsd-bewertung-wann-hat-es-das-kba",
-      "sourceLabel": "BMV list of further-examination states"
+      "blurb": "National recognition of the Dutch provisional FSD (Supervised) homologation, announced by Tesla Europe on 21 September 2026. Rollout will begin soon. Confirm in the Tesla app when available. Pending a ministry / MDČR primary notice if still absent. Not itself an EU-wide TCMV act.",
+      "sourceUrl": "https://x.com/teslaeurope/status/2101947798933385410",
+      "sourceLabel": "Tesla Europe (X)"
     },
     {
       "iso": "SE",
