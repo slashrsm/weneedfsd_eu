@@ -131,9 +131,9 @@
         data.tcmvStatesNeeded +
         " states and " +
         Math.round(data.tcmvPopulationShareNeeded * 100) +
-        "% of people · EU vote " +
+        "% of people · " +
         data.tcmvNext.label +
-        ", not on a published agenda · as\u00a0of " +
+        " · as\u00a0of " +
         asOf +
         ".";
     }
