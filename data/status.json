@@ -1,17 +1,17 @@
 {
-  "asOf": "2026-09-25",
+  "asOf": "2026-09-28",
   "euApproved": 7,
   "euTotal": 27,
   "euPopulationShareApproved": 0.118,
   "tcmvStatesNeeded": 15,
   "tcmvPopulationShareNeeded": 0.65,
   "tcmvNext": {
-    "label": "expected October 2026",
+    "label": "6 Oct TCMV: discussions only (no vote)",
     "confirmed": false,
-    "note": "Traficom (23 Jun 2026) and Reuters (6 Aug 2026) expect a vote in October. Trade press and trackers name 6 October 2026 — Tesla-expected / trade-press, not Commission-confirmed. BMV Staatssekretär Hirte (written answer to MdB Kneller, letter 14 Sep 2026, published on X 23 Sep) says a possible EU-wide recognition is expected to be discussed in TCMV in October 2026 — still not a confirmed vote date. Not on a published Commission TCMV agenda as of 2026-09-25."
+    "note": "Published draft agenda for the 119th TCMV (6 October 2026; DG GROW; draft dated ~11 September) lists only “Continuation of discussions on request of the Netherlands for an Art. 39 authorisation” (~25 min, 11:45–12:10). Tesla is not named; no vote is listed. Electrek and Reuters (25 September 2026) and fsd-eu-tracker.de (“no FSD vote (discussions only) · October 6”) report the same reading. Next scheduled TCMV after October is December — earliest apparent vote opportunity per Electrek/Reuters; not a Commission-confirmed December vote date."
   },
   "trackerUrl": "https://fsd-eu-tracker.de/en/",
-  "sourcesNote": "Statuses from official notices. Germany row updated 25 September 2026 from BMV Staatssekretär Christian Hirte’s written answer to MdB Maximilian Kneller (Frage Nr. 0121/September; letter dated 14 September 2026; Kneller published the letter image on X 23 September): KBA is evaluating the RDW Article 39 file and discussing system-side speed excess with RDW and Tesla; possible EU-wide recognition expected to be discussed in TCMV in October — not a national go-ahead and not a confirmed 6 October vote. Czechia row updated 21 September 2026 from MDČR press release recognising Dutch RDW provisional FSD (Supervised) approval; ministry X (@min_dopravy) and Tesla Europe same morning secondary; Tesla Europe still “Rollout will begin soon” (no formal “now live for all CZ”); Czech press / owner questions show unlock not universal yet. Spain row updated 17 September 2026: Tesla Europe (16 Sep) ~460,000 km company testing — not customer unlock. Slovenia: AVP temporary recognition 7 Sep; early SI unlocks reported (owner secondary). Sweden: Riksdag written answer 2025/26:1000. Ireland: Irish Examiner 23 Sep quotes Tesla “working with authorities” / anticipating arrival — not unlock. Tracker is a third-party view, not scraped live by this site.",
+  "sourcesNote": "Statuses from official notices. TCMV row updated 28 September 2026: published draft agenda for the 119th TCMV (6 October 2026; DG GROW; draft ~11 September) lists only “Continuation of discussions on request of the Netherlands for an Art. 39 authorisation” (~25 min, 11:45–12:10) — Tesla not named, no vote; Electrek and Reuters 25 September and fsd-eu-tracker.de match; next scheduled TCMV after October is December (earliest apparent vote opportunity per those reports — not Commission-confirmed as a vote date). Germany stays in_review from BMV Staatssekretär Christian Hirte’s written answer to MdB Maximilian Kneller (Frage Nr. 0121/September; letter 14 September 2026; Kneller X 23 September): KBA still evaluating RDW Article 39 file; Speed Offset talks with RDW and Tesla; October discussion hedge now aligned to the draft agenda’s discussions-only item. Czechia row updated 21 September 2026 from MDČR press release recognising Dutch RDW provisional FSD (Supervised) approval; ministry X (@min_dopravy) and Tesla Europe same morning secondary; Tesla Europe still “Rollout will begin soon” (no formal “now live for all CZ”); secondary Czech press claims of Prague unlocks do not replace a Tesla Europe universal-unlock notice. Spain row updated 17 September 2026: Tesla Europe (16 Sep) ~460,000 km company testing — not customer unlock. Slovenia: AVP temporary recognition 7 Sep; early SI unlocks reported (owner secondary); October TCMV vote language removed. Sweden: Riksdag written answer 2025/26:1000. Ireland: Irish Examiner 23 Sep quotes Tesla “working with authorities” / anticipating arrival — not unlock. Tracker is a third-party view, not scraped live by this site.",
   "countries": [
     {
       "iso": "NL",
@@ -77,7 +77,7 @@
       "authority": "BMV + KBA",
       "authorityUrl": "https://www.bmv.de",
       "populationM": 83.6,
-      "blurb": "BMV Staatssekretär Christian Hirte’s written answer to MdB Maximilian Kneller (letter 14 September 2026; published on X 23 September) confirms the KBA is still evaluating the RDW Article 39 file and is talking with RDW and Tesla about system-side exceeding of the speed limit. A possible EU-wide recognition is expected to be discussed in TCMV in October 2026 — that is not a confirmed vote on 6 October and not a national go-ahead. Write for a TCMV yes.",
+      "blurb": "BMV Staatssekretär Christian Hirte’s written answer to MdB Maximilian Kneller (letter 14 September 2026; published on X 23 September) confirms the KBA is still evaluating the RDW Article 39 file and is talking with RDW and Tesla about system-side exceeding of the speed limit. Hirte expected possible EU-wide recognition to be discussed in TCMV in October; the published 119th TCMV draft agenda (6 October) lists only continuation of discussions (~25 min) — no vote. Not a national go-ahead. Write for a TCMV yes.",
       "sourceUrl": "https://x.com/maxkneller/status/2102840937194107248",
       "sourceLabel": "Hirte written answer (via Kneller, X)"
     },
@@ -271,7 +271,7 @@
       "authority": "Ministrstvo za infrastrukturo (Vrtovec / Dvornik) / AVP",
       "authorityUrl": "https://www.avp-rs.si/",
       "populationM": 2.1,
-      "blurb": "AVP confirmed temporary recognition of the Dutch provisional FSD (Supervised) type approval (7 September 2026; AVP notice 8 September). Driver assistance, not autonomy. Early SI customer unlocks and first drives reported around 10–11 September 2026 (owner posts, secondary — e.g. Jan Skočaj; Igor Vovk). Confirm in the Tesla app; Tesla Europe’s 7 September line was still “Rollout will begin soon,” with no formal “now live for all SI” company notice. EU-wide decision still pending; a vote is foreseen for October 2026.",
+      "blurb": "AVP confirmed temporary recognition of the Dutch provisional FSD (Supervised) type approval (7 September 2026; AVP notice 8 September). Driver assistance, not autonomy. Early SI customer unlocks and first drives reported around 10–11 September 2026 (owner posts, secondary — e.g. Jan Skočaj; Igor Vovk). Confirm in the Tesla app; Tesla Europe’s 7 September line was still “Rollout will begin soon,” with no formal “now live for all SI” company notice. EU-wide decision still pending; the published 119th TCMV draft agenda (6 October) lists discussions only (no vote); next scheduled TCMV is December — earliest apparent vote opportunity per Electrek/Reuters, not Commission-confirmed.",
       "sourceUrl": "https://www.avp-rs.si/tesla-fsd-supervised-tudi-v-sloveniji-napredni-sistem-za-pomoc-vozniku-ne-avtonomna-voznja/",
       "sourceLabel": "AVP (Agencija za varnost prometa)"
     },
