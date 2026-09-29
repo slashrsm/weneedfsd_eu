@@ -1,8 +1,8 @@
 {
-  "asOf": "2026-09-28",
-  "euApproved": 7,
+  "asOf": "2026-09-29",
+  "euApproved": 8,
   "euTotal": 27,
-  "euPopulationShareApproved": 0.118,
+  "euPopulationShareApproved": 0.127,
   "tcmvStatesNeeded": 15,
   "tcmvPopulationShareNeeded": 0.65,
   "tcmvNext": {
@@ -11,7 +11,7 @@
     "note": "Published draft agenda for the 119th TCMV (6 October 2026; DG GROW; draft dated ~11 September) lists only “Continuation of discussions on request of the Netherlands for an Art. 39 authorisation” (~25 min, 11:45–12:10). Tesla is not named; no vote is listed. Electrek and Reuters (25 September 2026) and fsd-eu-tracker.de (“no FSD vote (discussions only) · October 6”) report the same reading. Next scheduled TCMV after October is December — earliest apparent vote opportunity per Electrek/Reuters; not a Commission-confirmed December vote date."
   },
   "trackerUrl": "https://fsd-eu-tracker.de/en/",
-  "sourcesNote": "Statuses from official notices. TCMV row updated 28 September 2026: published draft agenda for the 119th TCMV (6 October 2026; DG GROW; draft ~11 September) lists only “Continuation of discussions on request of the Netherlands for an Art. 39 authorisation” (~25 min, 11:45–12:10) — Tesla not named, no vote; Electrek and Reuters 25 September and fsd-eu-tracker.de match; next scheduled TCMV after October is December (earliest apparent vote opportunity per those reports — not Commission-confirmed as a vote date). Germany stays in_review from BMV Staatssekretär Christian Hirte’s written answer to MdB Maximilian Kneller (Frage Nr. 0121/September; letter 14 September 2026; Kneller X 23 September): KBA still evaluating RDW Article 39 file; Speed Offset talks with RDW and Tesla; October discussion hedge now aligned to the draft agenda’s discussions-only item. Czechia row updated 21 September 2026 from MDČR press release recognising Dutch RDW provisional FSD (Supervised) approval; ministry X (@min_dopravy) and Tesla Europe same morning secondary; Tesla Europe still “Rollout will begin soon” (no formal “now live for all CZ”); secondary Czech press claims of Prague unlocks do not replace a Tesla Europe universal-unlock notice. Spain row updated 17 September 2026: Tesla Europe (16 Sep) ~460,000 km company testing — not customer unlock. Slovenia: AVP temporary recognition 7 Sep; early SI unlocks reported (owner secondary); October TCMV vote language removed. Sweden: Riksdag written answer 2025/26:1000. Ireland: Irish Examiner 23 Sep quotes Tesla “working with authorities” / anticipating arrival — not unlock. Tracker is a third-party view, not scraped live by this site.",
+  "sourcesNote": "Statuses from official notices. Croatia row updated 29 September 2026 from Tesla Europe announcement (X, 29 Sep, ~10:02 CEST: “FSD Supervised now approved in Croatia / Rollout will begin soon”) — pending MMPI/CVH primary; no ministry notice located at the time of this update; Jutarnji list (29 Sep) relays Tesla’s release (OTA rollout in the coming days), secondary. TCMV row updated 28 September 2026: published draft agenda for the 119th TCMV (6 October 2026; DG GROW; draft ~11 September) lists only “Continuation of discussions on request of the Netherlands for an Art. 39 authorisation” (~25 min, 11:45–12:10) — Tesla not named, no vote; Electrek and Reuters 25 September and fsd-eu-tracker.de match; next scheduled TCMV after October is December (earliest apparent vote opportunity per those reports — not Commission-confirmed as a vote date). Germany stays in_review from BMV Staatssekretär Christian Hirte’s written answer to MdB Maximilian Kneller (Frage Nr. 0121/September; letter 14 September 2026; Kneller X 23 September): KBA still evaluating RDW Article 39 file; Speed Offset talks with RDW and Tesla; October discussion hedge now aligned to the draft agenda’s discussions-only item. Czechia row updated 21 September 2026 from MDČR press release recognising Dutch RDW provisional FSD (Supervised) approval; ministry X (@min_dopravy) and Tesla Europe same morning secondary; Tesla Europe still “Rollout will begin soon” (no formal “now live for all CZ”); secondary Czech press claims of Prague unlocks do not replace a Tesla Europe universal-unlock notice. Spain row updated 17 September 2026: Tesla Europe (16 Sep) ~460,000 km company testing — not customer unlock. Slovenia: AVP temporary recognition 7 Sep; early SI unlocks reported (owner secondary); October TCMV vote language removed. Sweden: Riksdag written answer 2025/26:1000. Ireland: Irish Examiner 23 Sep quotes Tesla “working with authorities” / anticipating arrival — not unlock. Tracker is a third-party view, not scraped live by this site.",
   "countries": [
     {
       "iso": "NL",
@@ -255,13 +255,14 @@
     {
       "iso": "HR",
       "name": "Croatia",
-      "status": "no_national_approval",
-      "date": null,
-      "authority": "MMPI",
-      "authorityUrl": null,
+      "status": "approved",
+      "date": "2026-09-29",
+      "authority": "MMPI / CVH (per Tesla Europe)",
+      "authorityUrl": "https://mmpi.gov.hr",
       "populationM": 3.9,
-      "blurb": "No primary national decision found. Ask for a public position.",
-      "sourceUrl": null
+      "blurb": "Tesla Europe announced national approval of FSD (Supervised) in Croatia on 29 September 2026; rollout will begin soon — confirm in the Tesla app. Recognition of the Dutch RDW Article 39 provisional approval is implied. No MMPI or CVH notice located at the time of this update — treat as a company announcement pending ministry primary.",
+      "sourceUrl": "https://x.com/teslaeurope/status/2104844301461262602",
+      "sourceLabel": "Tesla Europe (company announcement)"
     },
     {
       "iso": "SI",
