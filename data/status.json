@@ -281,11 +281,12 @@
       "name": "Latvia",
       "status": "no_national_approval",
       "date": null,
-      "authority": "Ministry of Transport",
-      "authorityUrl": null,
+      "authority": "CSDD (Road Traffic Safety Directorate)",
+      "authorityUrl": "https://www.csdd.lv/",
       "populationM": 1.9,
-      "blurb": "Baltic rumours of an imminent sign-off were not matched by a published decision as of 9 September 2026.",
-      "sourceUrl": null
+      "blurb": "No national recognition as of 6 October 2026. The Cabinet’s TAP portal lists a Ministry of Economics draft informative report proposing recognition of the Dutch approval (project 26-TA-2030). In consultation, ministries objected that the decision belongs to CSDD as approval authority, not the Cabinet, and the Transport Ministry asked to wait for the 6 October TCMV. Not a decision either way.",
+      "sourceUrl": "https://tapportals.mk.gov.lv/legal_acts/59bac950-a57d-4a56-884a-285ef95b6d83",
+      "sourceLabel": "Latvian Cabinet TAP portal (26-TA-2030)"
     },
     {
       "iso": "CY",
