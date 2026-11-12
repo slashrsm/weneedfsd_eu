@@ -440,7 +440,8 @@
       return (
         "<p>I understand " +
         mark("Trafikverket’s April letter recommended a TCMV no unless Speed Offset is removed.") +
-        " Infrastrukturminister Carlson’s written answer of 1 September 2026 restates a union-wide ADAS ambition while still taking Trafikverket into account. That is not a locked yes.</p>" +
+        " Infrastrukturminister Carlson’s written answer of 1 September 2026 restates a union-wide ADAS ambition while still taking Trafikverket into account. That is not a locked yes. " +
+        "Transportstyrelsen’s page, updated 26 October 2026, allows limited tests with trained test drivers; consumer activation is not allowed before the EU vote; even after a yes, it says a broader Swedish launch is possible at the earliest in spring or summer 2027. That timing is Transportstyrelsen’s own estimate.</p>" +
         "<p>I ask you to take a public TCMV line, and to say whether Sweden will recognise the Dutch file nationally if you can. A qualified majority needs 15 Member States and 65% of the EU population. The next TCMV meeting is expected in December 2026; whether it will hold a vote is not yet decided.</p>" +
         "<p>Please tell me how " +
         mark(c.name) +
