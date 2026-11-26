@@ -428,7 +428,7 @@
   function letterAsk(c, mode) {
     if (mode === "support") {
       return (
-        "<p>I ask you to instruct your representatives in the Technical Committee on Motor Vehicles to support Commission authorisation of the implementing act. A qualified majority needs 15 Member States and 65% of the EU population. The next TCMV meeting is expected in December 2026; whether it will hold a vote is not yet decided. " +
+        "<p>I ask you to instruct your representatives in the Technical Committee on Motor Vehicles to support Commission authorisation of the implementing act. A qualified majority needs 15 Member States and 65% of the EU population. The next TCMV meeting is set for 15 December 2026; a vote is not confirmed. " +
         mark(c.name) +
         " has already accepted this file. I am not asking you to recognise it again. I am asking you to vote yes, so a Commission refusal does not start the six-month unwind of the approvals we already have.</p>" +
         "<p>Please tell me how " +
@@ -442,7 +442,7 @@
         mark("Trafikverket’s April letter recommended a TCMV no unless Speed Offset is removed.") +
         " Infrastrukturminister Carlson’s written answer of 1 September 2026 restates a union-wide ADAS ambition while still taking Trafikverket into account. That is not a locked yes. " +
         "Transportstyrelsen’s page, updated 26 October 2026, allows limited tests with trained test drivers; consumer activation is not allowed before the EU vote; even after a yes, it says a broader Swedish launch is possible at the earliest in spring or summer 2027. That timing is Transportstyrelsen’s own estimate.</p>" +
-        "<p>I ask you to take a public TCMV line, and to say whether Sweden will recognise the Dutch file nationally if you can. A qualified majority needs 15 Member States and 65% of the EU population. The next TCMV meeting is expected in December 2026; whether it will hold a vote is not yet decided.</p>" +
+        "<p>I ask you to take a public TCMV line, and to say whether Sweden will recognise the Dutch file nationally if you can. A qualified majority needs 15 Member States and 65% of the EU population. The next TCMV meeting is set for 15 December 2026; a vote is not confirmed.</p>" +
         "<p>Please tell me how " +
         mark(c.name) +
         " will vote at TCMV, and whether you will recognise the Dutch file nationally if you can.</p>"
@@ -454,7 +454,7 @@
           ? "Germany has said the KBA is assessing the file"
           : "Spain has said it prefers coordination with the Commission rather than a unilateral copy of the Dutch approval";
       return (
-        "<p>I ask you to instruct your representatives in the Technical Committee on Motor Vehicles to support Commission authorisation of the implementing act. A qualified majority needs 15 Member States and 65% of the EU population. The next TCMV meeting is expected in December 2026; whether it will hold a vote is not yet decided. I understand " +
+        "<p>I ask you to instruct your representatives in the Technical Committee on Motor Vehicles to support Commission authorisation of the implementing act. A qualified majority needs 15 Member States and 65% of the EU population. The next TCMV meeting is set for 15 December 2026; a vote is not confirmed. I understand " +
         mark(clause) +
         ". I am not asking you to pretend a national Article 39(5) recognition is already your stated path. I am asking for a public yes at TCMV.</p>" +
         "<p>Please tell me how " +
@@ -466,7 +466,7 @@
       return (
         "<p>I ask you to do two things. First, accept the Dutch provisional approval for use in " +
         mark(c.name) +
-        ", so that compatible Hardware 4 vehicles can use the approved EU build here. Second, instruct your representatives in the Technical Committee on Motor Vehicles to support Commission authorisation of the implementing act. A qualified majority needs 15 Member States and 65% of the EU population. The next TCMV meeting is expected in December 2026; whether it will hold a vote is not yet decided.</p>" +
+        ", so that compatible Hardware 4 vehicles can use the approved EU build here. Second, instruct your representatives in the Technical Committee on Motor Vehicles to support Commission authorisation of the implementing act. A qualified majority needs 15 Member States and 65% of the EU population. The next TCMV meeting is set for 15 December 2026; a vote is not confirmed.</p>" +
         "<p>Please tell me whether " +
         mark(c.name) +
         " will recognise the Dutch file nationally, and how you will vote at TCMV.</p>"
@@ -481,7 +481,7 @@
           " I ask you to revisit that position, or at least to support a Commission act that would let a supervised, Level 2 system operate under clear EU conditions.</p>";
       }
       return (
-        "<p>I am not asking you to recognise the current product as it stands. I ask you to take a <strong>public position</strong> on the TCMV meeting expected in December 2026 — whether it will hold a vote is not yet decided; a qualified majority needs 15 Member States and 65% of the EU population — and to say what would turn a no into a yes.</p>" +
+        "<p>I am not asking you to recognise the current product as it stands. I ask you to take a <strong>public position</strong> on the TCMV meeting set for 15 December 2026 — a vote is not confirmed; a qualified majority needs 15 Member States and 65% of the EU population — and to say what would turn a no into a yes.</p>" +
         extra +
         "<p>Please tell me how " +
         mark(c.name) +
